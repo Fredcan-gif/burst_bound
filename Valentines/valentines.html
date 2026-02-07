@@ -12,36 +12,58 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #ffe6e6;
+            /* A slightly softer pink background base */
+            background-color: #fff0f0; 
             font-family: 'Arial', sans-serif;
             overflow: hidden;
+            position: relative; /* Needed for background elements */
         }
+
+        /* --- NEW CSS FOR BACKGROUND FLOWERS --- */
+        .bg-flower {
+            position: fixed;
+            z-index: -1; /* Ensure they stay behind everything */
+            opacity: 0.6; /* Semi-transparent so they don't distract */
+            pointer-events: none; /* Clicks pass straight through them */
+            /* A gentle floating animation */
+            animation: float 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(10deg); }
+        }
+        /* -------------------------------------- */
 
         .container {
             text-align: center;
             position: relative;
+            z-index: 10; /* Keep main content above flowers */
         }
 
         h1 {
             color: #ff4d4d;
             font-size: 3rem;
             margin-bottom: 20px;
-            /* This ensures text stays readable even if button grows behind it */
+            /* Strong white glow to ensure readability over flowers */
             text-shadow: 
                 2px 2px 0px #fff, 
                 -1px -1px 0 #fff,  
                 1px -1px 0 #fff,
                 -1px 1px 0 #fff,
-                1px 1px 0 #fff;
+                1px 1px 0 #fff,
+                0 0 15px rgba(255,255,255,0.8);
             position: relative;
-            z-index: 100; /* Text sits ON TOP of everything */
-            pointer-events: none; /* Makes sure you can't accidentally click the text instead of the button */
+            z-index: 100; 
+            pointer-events: none; 
         }
 
         .gif-container img {
             width: 500px;
             height: auto;
             margin-bottom: 20px;
+            /* Optional: add a white border/shadow to make GIF pop out from background */
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.7));
         }
 
         .btn-container {
@@ -69,7 +91,7 @@
         #yesBtn {
             background-color: #ff4d4d;
             color: white;
-            z-index: 1; /* Button stays BEHIND the text */
+            z-index: 1; 
         }
 
         #yesBtn:hover {
@@ -133,20 +155,59 @@
         const celebration = document.getElementById('celebration');
         const mainQuestion = document.getElementById('mainQuestion');
 
-        // Track current scale of the Yes button
         let currentYesScale = 1;
 
         const messages = [
-            "Are you sure?", "Really sure?", "Pls yes no no", "YES not no!",
-            "Surely not?", "Pwease!", "Press on yes!",
-            "Are you absolutely certain?", "Why did u click on no!", "YES?!",
+            "Are you sure?", "Really sure?", "Think again!", "Last chance!",
+            "Surely not?", "You might regret this!", "Give it another thought!",
+            "Are you absolutely certain?", "This could be a mistake!", "Have a heart!",
             "Don't be so cold!", "Change of heart?", "Wouldn't you reconsider?",
-            "Is that your final answer?", "You're breaking my heart :((",
+            "Is that your final answer?", "You're breaking my heart ;(",
             "Why are you doing this?", "Don't do this to me!"
         ];
 
+        // --- NEW FUNCTION TO CREATE BACKGROUND FLOWERS ---
+        function createBackgroundFlowers() {
+            // Using some reliable public URLs for flower/heart icons
+            const images = [
+                'https://cdn-icons-png.flaticon.com/128/833/833472.png', // Red Rose
+                'https://cdn-icons-png.flaticon.com/128/2904/2904973.png', // Pink Flower
+                'https://cdn-icons-png.flaticon.com/128/7449/7449643.png', // Heart flower
+                'https://cdn-icons-png.flaticon.com/128/1077/1077035.png'  // Simple heart
+            ];
+
+            // Create 30 random background elements
+            for (let i = 0; i < 30; i++) {
+                const img = document.createElement('img');
+                img.classList.add('bg-flower');
+                // Pick a random image from the list
+                img.src = images[Math.floor(Math.random() * images.length)];
+                
+                // Random positioning over the whole screen
+                img.style.left = Math.random() * 100 + 'vw';
+                img.style.top = Math.random() * 100 + 'vh';
+                
+                // Random size between 30px and 80px
+                const size = Math.random() * 50 + 30;
+                img.style.width = size + 'px';
+                img.style.height = size + 'px';
+                
+                // Random starting rotation for variety
+                img.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Random animation delay so they don't all float in sync
+                img.style.animationDelay = (Math.random() * 5) + 's';
+
+                document.body.appendChild(img);
+            }
+        }
+
+        // Initialize flowers on load
+        createBackgroundFlowers();
+        // --------------------------------------------------
+
+
         function moveNoButton() {
-            // 1. Make the "No" button move smoothly
             const windowWidth = window.innerWidth;
             const windowHeight = window.innerHeight;
             const btnWidth = noBtn.offsetWidth;
@@ -159,11 +220,9 @@
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
 
-            // 2. Make the "Yes" button grow (no moving down)
-            currentYesScale += 0.2; // Increase scale by 20%
+            currentYesScale += 0.2;
             yesBtn.style.transform = `scale(${currentYesScale})`;
 
-            // 3. Change the text
             const randomIndex = Math.floor(Math.random() * messages.length);
             mainQuestion.innerText = messages[randomIndex];
         }
