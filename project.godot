@@ -11,9 +11,22 @@ config_version=5
 [application]
 
 config/name="burst_bound"
-run/main_scene="uid://cr4rt7i50b605"
+run/main_scene="uid://b2d8oiemj1su4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://cps1q8yn5ue0m"
+TransitionLayer="*uid://biip007tepypg"
+
+[display]
+
+window/size/viewport_width=768
+window/size/viewport_height=432
+window/size/window_width_override=1152
+window/size/window_height_override=648
+window/stretch/mode="canvas_items"
 
 [input]
 
