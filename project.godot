@@ -13,7 +13,6 @@ config_version=5
 config/name="burst_bound"
 run/main_scene="uid://b2d8oiemj1su4"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
