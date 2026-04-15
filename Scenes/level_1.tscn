@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://cr4rt7i50b605"]
 
 [ext_resource type="Texture2D" uid="uid://bh2wqugalqi2t" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/3_Far_Background_Tile.png" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://dntrjq5r3g085" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dntrjq5r3g085" path="res://Scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://jh5ihv4mlgnp" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://d0ocmeusb7m2n" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://h0klk4hrx8v0" path="res://LevelExit.tscn" id="5_rka8t"]
+[ext_resource type="PackedScene" uid="uid://h0klk4hrx8v0" path="res://Scenes/LevelExit.tscn" id="5_rka8t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hph3"]
 texture = ExtResource("1_h2yge")

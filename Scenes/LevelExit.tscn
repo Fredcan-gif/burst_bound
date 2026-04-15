@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h0klk4hrx8v0"]
 
-[ext_resource type="Script" uid="uid://cmuaq42mkb76h" path="res://level_exit.gd" id="1_arm25"]
+[ext_resource type="Script" uid="uid://cmuaq42mkb76h" path="res://Scripts/level_exit.gd" id="1_arm25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8lvt"]
 

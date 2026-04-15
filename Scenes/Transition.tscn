@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://biip007tepypg"]
 
-[ext_resource type="Script" uid="uid://b8ocnwkfu48ri" path="res://transition.gd" id="1_ws5yv"]
+[ext_resource type="Script" uid="uid://b8ocnwkfu48ri" path="res://Scripts/transition.gd" id="1_ws5yv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ws5yv"]
 outline_size = 7
