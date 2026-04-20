@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff0f0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* 🌸 BACKGROUND FLOWERS */
+    .bg-flower {
+        position: fixed;
+        z-index: -1;
+        opacity: 0.65;
+        cursor: pointer;
+        /* Smooth transition for mouse movement and magnet effect */
+        transition: transform 0.1s linear, left 1.5s ease-in-out, top 1.5s ease-in-out, opacity 1s ease;
+        will-change: transform, left, top;
+    }
+
+    .bg-flower:hover {
+        filter: drop-shadow(0 0 10px rgba(255,77,77,0.8));
+        transform: scale(1.2) !important;
+        z-index: 0;
+    }
+
+    /* This class is added by JS to make them float up and down */
+    .floating-anim {
+        animation: float 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        100% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* 🌸 MAIN CONTENT */
+    .container {
+        text-align: center;
+        z-index: 10;
+        position: relative;
+    }
+
+    h1 {
+        color: #ff4d4d;
+        font-size: 3rem;
+        text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        margin-bottom: 20px;
+    }
+
+    .gif-container img {
+        width: 500px; /* Adjusted size for better layout */
+        max-width: 100%;
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    #yesBtn {
+        background-color: #ff4d4d;
+        color: white;
+    }
+
+    #noBtn {
+        background-color: white;
+        color: #ff4d4d;
+        position: static; /* Start static, becomes fixed on hover */
+        transition: all 0.4s ease; /* Smooth runaway */
+    }
+
+    .hidden { display: none !important; }
+
+    /* 🌸 PETALS CSS */
+    .falling-petal {
+        position: fixed;
+        top: -10vh;
+        z-index: 1000;
+        user-select: none;
+        pointer-events: none;
+        animation-name: fall;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="container" id="question-screen">
+        <div class="gif-container">
+            <img src="shrek-puss-in-boots.gif" alt="Please?">
+        </div>
+        <h1 id="mainQuestion">Will you be my Valentine?</h1>
+        <div class="btn-container">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="celebration">
+        <div class="gif-container">
+            <img src="milk-milk-and-mocha.gif" alt="Yay!">
+        </div>
+        <h1>YEHEYYYY! ❤️<br>See you on the 14th!!!</h1>
+    </div>
+
+<script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionScreen = document.getElementById('question-screen');
+    const celebration = document.getElementById('celebration');
+    const mainQuestion = document.getElementById('mainQuestion');
+
+    const messages = [
+        "Are you sure?", "Pweasee!", "Dont say No!",
+        "You're breaking my heart :-(", "Change of heart?", 
+        "Really?", "YES!???", "Don't do this pwease!", "PRESS YES"
+    ];
+
+    /* 🌸 CREATE FLOWERS */
+    function createFlowers() {
+        const images = [
+            'https://cdn-icons-png.flaticon.com/128/1196/1196535.png', // tulip
+            'https://cdn-icons-png.flaticon.com/128/2926/2926723.png', // carnation
+            'https://cdn-icons-png.flaticon.com/128/7064/7064906.png', // lily
+            'https://cdn-icons-png.flaticon.com/128/8611/8611570.png', // daisies
+            'https://cdn-icons-png.flaticon.com/128/7354/7354787.png', // sunflower
+            'https://cdn-icons-png.flaticon.com/128/7096/7096435.png', // sakura
+            'https://cdn-icons-png.flaticon.com/128/5075/5075780.png', // 
+            
+        ];
+
+        for (let i = 0; i < 30; i++) {
+            const img = document.createElement('img');
+            img.className = 'bg-flower floating-anim'; // Add animation class
+            img.src = images[Math.floor(Math.random() * images.length)];
+
+            // Random Size
+            const size = Math.random() * 40 + 30;
+            img.style.width = size + 'px';
+            
+            // Random Position
+            img.style.left = Math.random() * 95 + 'vw';
+            img.style.top = Math.random() * 95 + 'vh';
+            
+            // Random Animation Delay so they don't sync up
+            img.style.animationDelay = (Math.random() * 5) + 's';
+
+            document.body.appendChild(img);
+        }
+    }
+    createFlowers();
+
+    /* 🖱️ MOUSE PARALLAX (Subtle effect) */
+    document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+        document.querySelectorAll('.bg-flower').forEach((f, i) => {
+            // Only apply if not currently in "magnet" mode
+            if(!f.classList.contains('magnetized')) {
+                const speed = (i % 5) + 1;
+                // We use transform here, but we must respect the CSS animation
+                // So we actually just nudge margins or use a specific transform if possible
+                // To keep it simple and bug-free, we won't override the float animation transform
+                // Instead, we can slightly adjust margins
+                f.style.marginLeft = `${x * speed}px`;
+                f.style.marginTop = `${y * speed}px`;
+            }
+        });
+    });
+
+    /* ❌ NO BUTTON RUNAWAY */
+    function moveNoButton() {
+        // Calculate available space
+        const w = window.innerWidth - 100; // minus button width approx
+        const h = window.innerHeight - 50; // minus button height approx
+        
+        const newX = Math.random() * w;
+        const newY = Math.random() * h;
+
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = newX + 'px';
+        noBtn.style.top = newY + 'px';
+        
+        // Random message
+        mainQuestion.innerText = messages[Math.floor(Math.random() * messages.length)];
+    }
+
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        moveNoButton();
+    });
+
+    /* 💘 YES BUTTON ACTION */
+    yesBtn.addEventListener('click', () => {
+        questionScreen.classList.add('hidden');
+        celebration.classList.remove('hidden');
+        
+        flowerMagnet();
+        petals();
+    });
+
+    /* 🌸 FLOWERS GATHER ANIMATION */
+    function flowerMagnet() {
+        const flowers = document.querySelectorAll('.bg-flower');
+        
+        flowers.forEach(f => {
+            f.classList.add('magnetized'); // Stop mouse parallax
+            f.classList.remove('floating-anim'); // Stop bobbing
+            
+            // Move to center of screen
+            f.style.left = '50%';
+            f.style.top = '50%';
+            f.style.marginLeft = '0';
+            f.style.marginTop = '0';
+            
+            // Random scatter around center slightly
+            const randomX = (Math.random() - 0.5) * 400; // Spread 400px
+            const randomY = (Math.random() - 0.5) * 400;
+            
+            f.style.transform = `translate(-50%, -50%) translate(${randomX}px, ${randomY}px)`;
+            f.style.opacity = '0.3'; // Fade slightly to let text pop
+        });
+    }
+
+    /* 🎉 PETALS RAIN */
+    function petals() {
+        const emojis = ['🌸','🌺','💮','🌷','❤️'];
+        
+        // Create 50 petals
+        const interval = setInterval(() => {
+            const p = document.createElement('div');
+            p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+            p.className = 'falling-petal';
+            
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.fontSize = Math.random() * 20 + 20 + 'px';
+            
+            // Random animation duration between 2s and 5s
+            const duration = Math.random() * 3 + 2; 
+            p.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(p);
+            
+            // Remove after animation
+            setTimeout(() => p.remove(), duration * 1000);
+        }, 100);
+
+        // Stop creating petals after 5 seconds
+        setTimeout(() => clearInterval(interval), 5000);
+    }
+</script>
+
+</body>
+</html>
