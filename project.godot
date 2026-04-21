@@ -21,11 +21,11 @@ TransitionLayer="*uid://biip007tepypg"
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=432
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/window_width_override=1152
 window/size/window_height_override=648
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -68,6 +68,7 @@ move_down={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=2500.0
 
 [rendering]
 

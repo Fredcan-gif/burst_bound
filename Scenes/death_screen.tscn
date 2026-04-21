@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://croofj872yakp"]
+
+[ext_resource type="Script" uid="uid://7g0caopbtrfd" path="res://Scenes/death_screen.gd" id="1_8hps1"]
+[ext_resource type="Texture2D" uid="uid://7ttftyjrq0k7" path="res://Assets/clipboard.png" id="2_rwas2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwas2"]
+font_size = 50
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=724867970]
+script = ExtResource("1_8hps1")
+
+[node name="ClipboardContainer" type="Control" parent="." unique_id=704794137]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ClipboardImage" type="TextureRect" parent="ClipboardContainer" unique_id=1650769886]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -592.3125
+offset_top = -657.0
+offset_right = 592.3125
+offset_bottom = 527.625
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rwas2")
+
+[node name="TitleLabel" type="Label" parent="ClipboardContainer" unique_id=454094779]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -330.9999
+offset_right = -16.0
+offset_bottom = -307.9999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "TEST EVALUATION"
+
+[node name="ScoreLabel" type="Label" parent="ClipboardContainer" unique_id=1151574334]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -90.0
+offset_right = -196.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "Score: 0"
+
+[node name="TimeLabel" type="Label" parent="ClipboardContainer" unique_id=1668812710]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -139.0
+offset_right = -149.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "Time: 00:00.00"
+
+[node name="RatingLabel" type="Label" parent="ClipboardContainer" unique_id=873820299]
+visibility_layer = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 126.00012
+offset_top = -134.0
+offset_right = 166.00012
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "D"
+label_settings = SubResource("LabelSettings_rwas2")
+
+[node name="MainMenuButton" type="Button" parent="ClipboardContainer" unique_id=2132490009]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = 326.0
+offset_right = -137.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "Exit"
+
+[node name="RestartButton" type="Button" parent="ClipboardContainer" unique_id=1099934409]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 326.0
+offset_right = 137.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "Restart"
