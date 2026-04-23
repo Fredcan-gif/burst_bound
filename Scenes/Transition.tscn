@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://biip007tepypg"]
 
 [ext_resource type="Script" uid="uid://b8ocnwkfu48ri" path="res://Scripts/transition.gd" id="1_ws5yv"]
+[ext_resource type="Texture2D" uid="uid://j1akpevfum4k" path="res://Assets/door_transition.png" id="2_1l5q3"]
+[ext_resource type="Texture2D" uid="uid://r5uwh6ubh5xl" path="res://Assets/door_transitiondown.png" id="3_mh0y2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ws5yv"]
 font_size = 55
@@ -73,6 +75,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-3.1415927]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bar:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1080)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Top:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -540)]
 }
 
 [sub_resource type="Animation" id="Animation_y2wa0"]
@@ -151,6 +177,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [-3.1415927]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bar:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.33354172, 0.6336, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1080), Vector2(0, 540), Vector2(0, 540), Vector2(0, 1080)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Top:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3334885, 0.63356936, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -540), Vector2(0, 0), Vector2(0, 0), Vector2(0, -540)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jpf8g"]
 _data = {
@@ -206,3 +256,20 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1740572488]
 libraries/ = SubResource("AnimationLibrary_jpf8g")
+
+[node name="Top" type="TextureRect" parent="." unique_id=463771272]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -540.0
+grow_horizontal = 2
+texture = ExtResource("2_1l5q3")
+
+[node name="Bar" type="TextureRect" parent="." unique_id=192668198]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 540.0005
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_mh0y2")

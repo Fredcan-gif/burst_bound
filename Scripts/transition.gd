@@ -8,21 +8,21 @@ func _ready():
 
 func _process(_delta):
 	var current_scene = get_tree().current_scene
-	if current_scene == null:  # Guard against null during scene transitions
+	if current_scene == null:
 		return
 	
 	var is_main_menu = current_scene.scene_file_path == "res://Scenes/main_menu.tscn"
+	var should_show = not is_main_menu and not GameManager.player_dead
+
+	$Label.visible = should_show
+	$TimerLabel.visible = should_show
 	
-	$Label.visible = not is_main_menu
-	$TimerLabel.visible = not is_main_menu
-	
-	if not is_main_menu:
+	if should_show:
 		$Label.text = "Score: " + str(GameManager.score)
-		
 		var total_seconds = GameManager.level_time
 		var minutes = int(total_seconds) / 60
 		var seconds = int(total_seconds) % 60
-		var milliseconds = int(fmod(total_seconds, 1.0) * 100)  
+		var milliseconds = int(fmod(total_seconds, 1.0) * 100)
 		$TimerLabel.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 
 func play_full_transition(target_scene: String):

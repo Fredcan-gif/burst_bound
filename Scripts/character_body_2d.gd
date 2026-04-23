@@ -17,12 +17,15 @@ var is_dead = false
 var fall_start_played = false
 
 @onready var sprite = $AnimatedSprite2D
+@onready var collision = $CollisionShape2D
 
 func _ready():
 	# Start timer when player spawns into the level
 	GameManager.start_level_timer()
 
 func _draw():
+	if is_dead:
+		return  # Hide dash bar when dead
 	var pip_size = Vector2(4, 4)
 	var pip_gap = 1
 	var start_offset = Vector2(-10, -20)
@@ -141,9 +144,16 @@ func die():
 		return
 	can_move = false
 	is_dead = true
+	queue_redraw()
 	velocity = Vector2.ZERO
 	sprite.play("death")
+	GameManager.player_dead = true
 	GameManager.stop_level_timer()
+	
+	# Disable collision but keep sprite in place
+	collision.set_deferred("disabled", true)
+	set_physics_process(false)  # Stop all physics so player stays frozen in place
+	
 	if not sprite.animation_finished.is_connected(_on_death_animation_finished):
 		sprite.animation_finished.connect(_on_death_animation_finished)
 

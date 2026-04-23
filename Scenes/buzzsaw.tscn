@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bsvitp6k70q3k" path="res://Scripts/buzzsaw.gd" id="1_p8a0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_euya5"]
-radius = 17.117243
+radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8a0q"]
 atlas = ExtResource("1_ncutv")

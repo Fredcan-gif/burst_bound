@@ -12,6 +12,7 @@ var remaining_maps = []
 var level_time = 0.0
 var timer_running = false
 var game_started = false
+var player_dead = false
 
 # Best run
 var best_score = 0
@@ -52,17 +53,30 @@ func add_point():
 	print("Current Score: ", score)
 
 func try_save_best(run_score: int, run_time: float, run_rating: String):
-	# Rating hierarchy for comparison
 	var rating_rank = {"D": 0, "C": 1, "B": 2, "A": 3, "A+": 4, "S": 5}
 	var current_rank = rating_rank.get(run_rating, 0)
 	var saved_rank = rating_rank.get(best_rating, -1)
 	
 	if current_rank > saved_rank:
+		# Better rating always wins
 		best_score = run_score
 		best_time = run_time
 		best_rating = run_rating
 		save_best()
-
+	elif current_rank == saved_rank:
+		# Same rating — check score first
+		if run_score > best_score:
+			best_score = run_score
+			best_time = run_time
+			best_rating = run_rating
+			save_best()
+		elif run_score == best_score and run_time < best_time:
+			# Same score — shorter time wins
+			best_score = run_score
+			best_time = run_time
+			best_rating = run_rating
+			save_best()
+			
 func save_best():
 	var config = ConfigFile.new()
 	config.set_value("best", "score", best_score)
@@ -82,4 +96,5 @@ func reset_run():
 	level_time = 0.0
 	timer_running = false
 	game_started = false
+	player_dead = false 
 	refill_map_pool()

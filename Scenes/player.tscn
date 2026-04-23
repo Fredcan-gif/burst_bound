@@ -32,10 +32,6 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("2_8erm5")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
-atlas = ExtResource("3_f1ek2")
-region = Rect2(0, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nv4vc"]
 atlas = ExtResource("3_f1ek2")
 region = Rect2(128, 0, 128, 128)
@@ -280,9 +276,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yh6i2")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_nv4vc")
 }, {
 "duration": 1.0,
@@ -350,7 +343,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 11.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -478,6 +471,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1312032871 groups=["Player"]]
+z_index = 1
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=760093310]
@@ -488,10 +482,8 @@ shape = SubResource("RectangleShape2D_1bvp3")
 texture_filter = 1
 scale = Vector2(0.8710973, 0.8340624)
 sprite_frames = SubResource("SpriteFrames_5vw27")
-animation = &"dash"
+animation = &"idle"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 
 [node name="DashTimer" type="Timer" parent="." unique_id=49251503]
 one_shot = true

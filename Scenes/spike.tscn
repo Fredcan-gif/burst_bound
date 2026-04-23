@@ -12,7 +12,7 @@ collision_layer = 2
 script = ExtResource("1_1hotg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1429939977]
-polygon = PackedVector2Array(-8, 8, 8, 8, 8, 2, 6, -9, -5, -9, -8, 2)
+polygon = PackedVector2Array(-8, 8, 8, 8, 8, 2, 6, -8, -5, -8, -8, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=574921299]
 texture_filter = 1
