@@ -18,3 +18,8 @@
 - Added final rank result calculation based on score and time
 - Added results screen
 - Added a Personal Best Run System where your highest score is saved and displayed in the title screen across all sessions
+
+**4/24/2026 - Week 3 Progress:**
+- Added Enemy AI
+- Updated UI
+- Added more stages
