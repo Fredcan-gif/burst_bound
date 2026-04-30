@@ -16,9 +16,6 @@ font_color = Color(0, 0, 0, 1)
 [node name="Main Menu" type="Node2D" unique_id=1483382934]
 script = ExtResource("1_7vrkn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=413488731]
-autoplay = true
-
 [node name="Menu" type="VBoxContainer" parent="." unique_id=1363104855]
 anchors_preset = 8
 anchor_left = 0.5
