@@ -3,9 +3,25 @@ extends Node2D
 @onready var best_rating_label = $BestRunContainer/RatingRow/BestRatingLabel
 @onready var best_score_label = $BestRunContainer/ScoreRow/BestScoreLabel
 @onready var best_time_label = $BestRunContainer/TimeRow/BestTimeLabel
+@onready var description_label = $Menu/Button_manager/DescriptionLabel
+
+const DESCRIPTIONS = {
+	"start": "Enter the gauntlet. Survive as long as you can.",
+	"tutorial": "Learn the basics before diving in.",
+	"exit": "Quit the game."
+}
 
 func _ready():
 	GameManager.reset_run()
+	description_label.text = ""  # Empty by default
+	
+	# Connect hover signals for each button
+	$Menu/Button_manager/Start.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["start"])
+	$Menu/Button_manager/Start.mouse_exited.connect(func(): description_label.text = "")
+	$Menu/Button_manager/Tutorial.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["tutorial"])
+	$Menu/Button_manager/Tutorial.mouse_exited.connect(func(): description_label.text = "")
+	$Menu/Button_manager/Quit.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["exit"])
+	$Menu/Button_manager/Quit.mouse_exited.connect(func(): description_label.text = "")
 		
 	if GameManager.best_rating == "":
 		best_rating_label.text = "—"

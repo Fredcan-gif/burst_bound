@@ -15,6 +15,8 @@ var is_dashing = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dead = false
 var fall_start_played = false
+var can_jump = true
+var can_dash = true
 
 @onready var sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
@@ -42,7 +44,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-		
+
 	if not can_move:
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -62,12 +64,12 @@ func _physics_process(delta):
 		fall_start_played = false
 
 	# 2. Handle Jump
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+	if can_jump and Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		fall_start_played = false
 
 	# 3. Handle Dash Input
-	if Input.is_action_just_pressed("move_dash") and dashes_left > 0:
+	if can_dash and Input.is_action_just_pressed("move_dash") and dashes_left > 0:
 		start_dash()
 
 	# 4. Standard Horizontal Movement

@@ -13,6 +13,7 @@ var level_time = 0.0
 var timer_running = false
 var game_started = false
 var player_dead = false
+var is_tutorial = false
 
 # Best run
 var best_score = 0
@@ -53,6 +54,9 @@ func add_point():
 	print("Current Score: ", score)
 
 func try_save_best(run_score: int, run_time: float, run_rating: String):
+	if is_tutorial:
+		return
+		
 	var rating_rank = {"D": 0, "C": 1, "B": 2, "A": 3, "A+": 4, "S": 5}
 	var current_rank = rating_rank.get(run_rating, 0)
 	var saved_rank = rating_rank.get(best_rating, -1)

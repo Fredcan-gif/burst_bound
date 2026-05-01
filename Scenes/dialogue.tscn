@@ -4,15 +4,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_dgfud"]
 font_size = 35
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p21q5"]
-font_size = 35
-font_color = Color(0, 0, 0, 1)
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_5rqxr"]
 font_size = 20
-font_color = Color(0, 0, 0, 1)
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=554704430]
 script = ExtResource("1_5rqxr")
@@ -34,22 +31,25 @@ anchor_bottom = 1.0
 offset_top = -267.0
 grow_horizontal = 2
 grow_vertical = 0
+color = Color(0, 0, 0, 0.4)
 
 [node name="NameLabel" type="Label" parent="DialogueBox" unique_id=2027855494]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 838.0
-offset_right = 82.0
-offset_bottom = 861.0
+offset_left = 46.0
+offset_top = 834.0
+offset_right = 86.0
+offset_bottom = 883.0
 label_settings = SubResource("LabelSettings_dgfud")
 
 [node name="DialogueLabel" type="Label" parent="DialogueBox" unique_id=481122990]
+custom_minimum_size = Vector2(1700, 0)
 layout_mode = 0
-offset_left = 65.0
-offset_top = 945.0
-offset_right = 105.0
-offset_bottom = 968.0
+offset_left = 44.0
+offset_top = 887.0
+offset_right = 1744.0
+offset_bottom = 929.0
 label_settings = SubResource("LabelSettings_p21q5")
+autowrap_mode = 2
 
 [node name="ContinueLabel" type="Label" parent="DialogueBox" unique_id=280956525]
 layout_mode = 0

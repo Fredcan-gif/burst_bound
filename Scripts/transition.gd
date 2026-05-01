@@ -11,8 +11,10 @@ func _process(_delta):
 	if current_scene == null:
 		return
 	
-	var is_main_menu = current_scene.scene_file_path == "res://Scenes/main_menu.tscn"
-	var should_show = not is_main_menu and not GameManager.player_dead
+	var scene_path = current_scene.scene_file_path
+	var is_main_menu = scene_path == "res://Scenes/main_menu.tscn"
+	var is_tutorial = "tutorial" in scene_path.to_lower()
+	var should_show = not is_main_menu and not is_tutorial and not GameManager.player_dead
 
 	$Label.visible = should_show
 	$TimerLabel.visible = should_show
@@ -48,3 +50,24 @@ func play_full_transition(target_scene: String):
 		
 		if new_player and not Dialogue.is_showing:
 			new_player.can_move = true
+			
+func play_full_transition_in_place(spawn_pos: Vector2, player):
+	# Freeze player
+	player.can_move = false
+	
+	$AnimationPlayer.play("close_and_open")
+	await mid_way
+	
+	# Teleport player at the midpoint when screen is black
+	player.global_position = spawn_pos
+	player.velocity = Vector2.ZERO
+	
+	# Continue opening
+	$AnimationPlayer.play("close_and_open")
+	$AnimationPlayer.seek(0.5, true)
+	
+	await $AnimationPlayer.animation_finished
+	
+	# Unfreeze only if dialogue isn't showing
+	if not Dialogue.is_showing:
+		player.can_move = true
