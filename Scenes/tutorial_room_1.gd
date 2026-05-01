@@ -14,4 +14,4 @@ func _ready():
 func _on_goal_reached(body):
 	if body.is_in_group("Player") and not goal_reached:
 		goal_reached = true
-		TransitionLayer.play_full_transition("res://Scenes/tutorial_2.tscn")
+		TransitionLayer.play_full_transition("res://Scenes/tutorial_room_2.tscn")
