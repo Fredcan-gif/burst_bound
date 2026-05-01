@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dg3e2qjfgy86k" path="res://Assets/Character/male_hero_template-fall.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://j0p7bg8euqlo" path="res://Assets/Character/male_hero_template-jump.png" id="4_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bofxkfhcg6fmd" path="res://Assets/Character/male_hero_template-run.png" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://tme188e6dbng" path="res://Assets/AudioFx/jump.mp3" id="9_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://1vbjwchnwwqg" path="res://Assets/AudioFx/dash.ogg" id="10_gymyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(17.5, 26)
@@ -487,5 +489,11 @@ autoplay = "idle"
 
 [node name="DashTimer" type="Timer" parent="." unique_id=49251503]
 one_shot = true
+
+[node name="JumpFX" type="AudioStreamPlayer2D" parent="." unique_id=336697903]
+stream = ExtResource("9_tx1dd")
+
+[node name="DashFX" type="AudioStreamPlayer2D" parent="." unique_id=99743414]
+stream = ExtResource("10_gymyn")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
