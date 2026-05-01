@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cf17rs8432jd3"]
-
-[ext_resource type="Script" uid="uid://uhte3m2q0q31" path="res://bgm.gd" id="1_2kasm"]
-[ext_resource type="AudioStream" uid="uid://dit6p3ojfvj76" path="res://Assets/bransboynd-industrial-work-389650.mp3" id="1_qur3m"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=2059553860]
-stream = ExtResource("1_qur3m")
-autoplay = true
-script = ExtResource("1_2kasm")
