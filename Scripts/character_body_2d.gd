@@ -38,6 +38,11 @@ func _draw():
 			draw_rect(Rect2(pip_pos, pip_size), Color(0.3, 0.3, 0.3, 0.8))
 
 func _physics_process(delta):
+	if Dialogue.is_showing or Dialogue.just_closed:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+		
 	if not can_move:
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -79,6 +84,9 @@ func _physics_process(delta):
 	queue_redraw()
 
 func start_dash():
+	if Dialogue.is_showing or Dialogue.just_closed:
+		return
+		
 	var dash_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if dash_direction == Vector2.ZERO:
 		dash_direction = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT

@@ -14,14 +14,22 @@ config/name="burst_bound"
 run/main_scene="uid://b2d8oiemj1su4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://boswu028ul31j"
+
 [autoload]
 
 GameManager="*uid://cps1q8yn5ue0m"
 TransitionLayer="*uid://biip007tepypg"
+<<<<<<< HEAD
 BackgroundMusic="*uid://xvnxqd1j8wkk"
 Nakama="*uid://da20rgf1dwflq"
 SaveData="*uid://otx2j1vtgfds"
 Leaderboard="*uid://wewfkyiyskqp"
+=======
+Dialogue="*uid://82a2kh7wx5i3"
+>>>>>>> e134ab6 (Added training stage and updated main menu)
 
 [display]
 
