@@ -1505,6 +1505,6 @@ position = Vector2(131, 571.00006)
 scale = Vector2(3.6400013, 3.6400013)
 
 [node name="TutorialExit" parent="." unique_id=945956509 instance=ExtResource("4_2guna")]
-position = Vector2(1823, 564)
-scale = Vector2(5.839998, 5.839998)
+position = Vector2(1824, 619.00006)
+scale = Vector2(6.9199977, 0.55999756)
 next_scene = "Scenes/tutorial_room_2.tscn"

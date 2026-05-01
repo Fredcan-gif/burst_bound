@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cerqm75dkcwa" path="res://Scenes/reset_zone.tscn" id="10_ar1uo"]
 [ext_resource type="Texture2D" uid="uid://2rxt5ko3k8gb" path="res://Assets/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Decor/Individual_PNGs/decor_6.png" id="10_e8w4w"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lx2p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8w4w"]
 texture = ExtResource("1_h2klf")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4est"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ho3i5"]
 texture = ExtResource("2_v7nwd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -528,14 +528,14 @@ texture = ExtResource("2_v7nwd")
 2:29/0 = 0
 3:29/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ar1uo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqskm"]
 texture = ExtResource("4_bt4d7")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8w4w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nvbig"]
 texture = ExtResource("5_6lx2p")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.0319052, 6.9285107, 8, 6.9285107, 8, 8, 1.2284594, 8)
@@ -572,7 +572,7 @@ texture = ExtResource("5_6lx2p")
 4:5/0 = 0
 5:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ho3i5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28d5q"]
 texture = ExtResource("6_6lx2p")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -961,17 +961,17 @@ texture = ExtResource("6_6lx2p")
 
 [sub_resource type="TileSet" id="TileSet_6lx2p"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_6lx2p")
-sources/1 = SubResource("TileSetAtlasSource_e4est")
-sources/2 = SubResource("TileSetAtlasSource_ar1uo")
-sources/3 = SubResource("TileSetAtlasSource_e8w4w")
-sources/4 = SubResource("TileSetAtlasSource_ho3i5")
+sources/0 = SubResource("TileSetAtlasSource_e8w4w")
+sources/1 = SubResource("TileSetAtlasSource_ho3i5")
+sources/2 = SubResource("TileSetAtlasSource_rqskm")
+sources/3 = SubResource("TileSetAtlasSource_nvbig")
+sources/4 = SubResource("TileSetAtlasSource_28d5q")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar1uo"]
-size = Vector2(15, 17)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8w4w"]
+size = Vector2(14.433022, 16.95877)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho3i5"]
-size = Vector2(20.10315, 13.164932)
+size = Vector2(19.32776, 13.034317)
 
 [node name="Node2D" type="Node2D" unique_id=595464832]
 script = ExtResource("1_v7nwd")
@@ -993,49 +993,47 @@ position = Vector2(101, 578)
 scale = Vector2(3.6400013, 3.6400013)
 
 [node name="TutorialExit" parent="." unique_id=945956509 instance=ExtResource("5_mxkak")]
-position = Vector2(1823, 564)
-scale = Vector2(5.839998, 5.839998)
+position = Vector2(1783.9999, 625)
+scale = Vector2(11.159998, 0.63999796)
 next_scene = "Scenes/tutorial_room_2.tscn"
 
 [node name="Barrel" type="StaticBody2D" parent="." unique_id=360631916]
-position = Vector2(628, 565)
+position = Vector2(998, 565)
 scale = Vector2(3.8799903, 3.8799903)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel" unique_id=1698877305]
-position = Vector2(0.5, 7.5)
-shape = SubResource("RectangleShape2D_ar1uo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Barrel" unique_id=320458184]
 texture_filter = 1
 texture = ExtResource("9_e4est")
 
-[node name="Box" type="StaticBody2D" parent="." unique_id=612209551]
-position = Vector2(1638, 548)
-scale = Vector2(4.7599955, 4.7599955)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1874057855]
-position = Vector2(0, 9.417618)
-shape = SubResource("RectangleShape2D_ho3i5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=520612062]
-texture_filter = 1
-texture = ExtResource("10_e8w4w")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel" unique_id=494652432]
+position = Vector2(0.5154724, 7.706192)
+shape = SubResource("RectangleShape2D_e8w4w")
 
 [node name="Box2" type="StaticBody2D" parent="." unique_id=2137308842]
-position = Vector2(264, 548)
+position = Vector2(358, 548)
 scale = Vector2(4.7599955, 4.7599955)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box2" unique_id=1303452749]
-position = Vector2(0, 9.417618)
-shape = SubResource("RectangleShape2D_ho3i5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Box2" unique_id=1571684906]
 texture_filter = 1
 texture = ExtResource("10_e8w4w")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box2" unique_id=2093947829]
+position = Vector2(1.5258789e-05, 9.6684265)
+shape = SubResource("RectangleShape2D_ho3i5")
+
 [node name="ResetZone" parent="." unique_id=552995607 instance=ExtResource("10_ar1uo")]
 position = Vector2(963.00006, 1045)
 scale = Vector2(96.76, 1)
+spawn_marker = NodePath("../Marker2D")
+
+[node name="ResetZone2" parent="." unique_id=32177828 instance=ExtResource("10_ar1uo")]
+position = Vector2(1000.00006, 594)
+scale = Vector2(2.9200046, 3.28)
+spawn_marker = NodePath("../Marker2D")
+
+[node name="ResetZone3" parent="." unique_id=562677003 instance=ExtResource("10_ar1uo")]
+position = Vector2(358, 594)
+scale = Vector2(4.7200146, 3.28)
 spawn_marker = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1940919873]
