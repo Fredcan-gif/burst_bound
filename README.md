@@ -23,3 +23,10 @@
 - Added Enemy AI
 - Updated UI
 - Added more stages
+
+**5/1/2026 - Week 4 Progress:**
+- Revamped Title Screen/Main Menu
+- Added sound effects and BGM
+- Improved controls
+- Added Tutorial mode
+- Added story (tentative)
