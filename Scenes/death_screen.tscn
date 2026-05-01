@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://croofj872yakp"]
 
-[ext_resource type="Script" path="res://Scripts/death_screen.gd" id="1_rwas2"]
+[ext_resource type="Script" uid="uid://7g0caopbtrfd" path="res://Scripts/death_screen.gd" id="1_rwas2"]
 [ext_resource type="Texture2D" uid="uid://7ttftyjrq0k7" path="res://Assets/clipboard.png" id="2_rwas2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwas2"]
@@ -137,3 +137,23 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 text = "Restart"
+
+[node name="SubmitBtn" type="Button" parent="ClipboardContainer" unique_id=1083578201]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ShareBtn" type="Button" parent="ClipboardContainer" unique_id=1756306183]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="StatusLabel" type="Label" parent="ClipboardContainer" unique_id=218100101]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NewBestLabel" type="Label" parent="ClipboardContainer" unique_id=362257294]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
