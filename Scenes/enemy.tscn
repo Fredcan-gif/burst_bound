@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bprs8js3q7cwv"]
+[gd_scene format=3 uid="uid://dmm62ko6ptkta"]
 
 [ext_resource type="Script" uid="uid://cniatj46e588" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://b1tmdc2i1a0ok" path="res://Assets/Enemy/4/Idle.png" id="2_afpow"]
+[ext_resource type="AudioStream" uid="uid://bhqk3fpmw0fd1" path="res://Assets/AudioFx/robot.mp3" id="4_287tu"]
 [ext_resource type="Texture2D" uid="uid://cvtryg1imkjet" path="res://Assets/Enemy/4/Walk.png" id="4_0830c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afpow"]
@@ -114,6 +115,11 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1322974318]
 shape = SubResource("RectangleShape2D_afpow")
+
+[node name="SoundFX" type="AudioStreamPlayer2D" parent="." unique_id=1051966658]
+stream = ExtResource("4_287tu")
+volume_db = -14.0
+autoplay = true
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

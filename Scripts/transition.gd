@@ -31,6 +31,11 @@ func play_full_transition(target_scene: String):
 	var old_player = get_tree().get_first_node_in_group("Player")
 	if old_player:
 		old_player.can_move = false
+		
+	if has_node("TransitionFX"):
+		$TransitionFX.pitch_scale = 1.2
+		$TransitionFX.play()
+		
 	$AnimationPlayer.play("close_and_open")
 	await mid_way 
 	
