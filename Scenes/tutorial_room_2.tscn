@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://pswj85uadwka"]
 
 [ext_resource type="Texture2D" uid="uid://d2ghj5bc40vnk" path="res://Assets/Training/godot_template/godot_minimal_3x3_autotile.png" id="1_h2klf"]
-[ext_resource type="Script" uid="uid://7luqn7uq68r4" path="res://Scenes/tutorial_room_2.gd" id="1_v7nwd"]
+[ext_resource type="Script" uid="uid://7luqn7uq68r4" path="res://Scripts/tutorial_room_2.gd" id="1_v7nwd"]
 [ext_resource type="Texture2D" uid="uid://dk3g64dxq3bbr" path="res://Assets/Training/tileset_for_free.png" id="2_v7nwd"]
 [ext_resource type="PackedScene" uid="uid://dntrjq5r3g085" path="res://Scenes/player.tscn" id="3_mxkak"]
 [ext_resource type="Texture2D" uid="uid://bwxjdee5sgot5" path="res://Assets/Scifi/3 Objects/Box1.png" id="4_bt4d7"]

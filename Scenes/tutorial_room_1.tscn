@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b14btixx1fo88"]
 
-[ext_resource type="Script" uid="uid://bslod2tos3bkg" path="res://Scenes/tutorial_room_1.gd" id="1_f35rp"]
+[ext_resource type="Script" uid="uid://bslod2tos3bkg" path="res://Scripts/tutorial_room_1.gd" id="1_f35rp"]
 [ext_resource type="Texture2D" uid="uid://d2ghj5bc40vnk" path="res://Assets/Training/godot_template/godot_minimal_3x3_autotile.png" id="1_id0ea"]
 [ext_resource type="Texture2D" uid="uid://dk3g64dxq3bbr" path="res://Assets/Training/tileset_for_free.png" id="2_2guna"]
 [ext_resource type="PackedScene" uid="uid://dntrjq5r3g085" path="res://Scenes/player.tscn" id="3_f35rp"]

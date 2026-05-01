@@ -57,22 +57,26 @@ func play_full_transition(target_scene: String):
 			new_player.can_move = true
 			
 func play_full_transition_in_place(spawn_pos: Vector2, player):
-	# Freeze player
 	player.can_move = false
 	
+	if has_node("TransitionFX"):
+		$TransitionFX.pitch_scale = 1.2
+		$TransitionFX.play()
+		
+	if has_node("AlarmFX"):
+		$AlarmFX.pitch_scale = 1.1
+		$AlarmFX.play(1.0)
+		
 	$AnimationPlayer.play("close_and_open")
 	await mid_way
 	
-	# Teleport player at the midpoint when screen is black
 	player.global_position = spawn_pos
 	player.velocity = Vector2.ZERO
 	
-	# Continue opening
 	$AnimationPlayer.play("close_and_open")
 	$AnimationPlayer.seek(0.5, true)
 	
 	await $AnimationPlayer.animation_finished
 	
-	# Unfreeze only if dialogue isn't showing
 	if not Dialogue.is_showing:
 		player.can_move = true
