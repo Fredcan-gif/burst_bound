@@ -19,6 +19,9 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 GameManager="*uid://cps1q8yn5ue0m"
 TransitionLayer="*uid://biip007tepypg"
 BackgroundMusic="*uid://xvnxqd1j8wkk"
+Nakama="*uid://da20rgf1dwflq"
+SaveData="*uid://otx2j1vtgfds"
+Leaderboard="*uid://wewfkyiyskqp"
 
 [display]
 
