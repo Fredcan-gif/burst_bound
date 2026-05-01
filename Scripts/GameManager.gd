@@ -14,6 +14,7 @@ var timer_running = false
 var game_started = false
 var player_dead = false
 var is_tutorial = false
+var stages_completed = 0
 
 # Best run
 var best_score = 0
@@ -48,9 +49,15 @@ func get_random_map():
 		refill_map_pool()
 	var next_map = remaining_maps.pop_back()
 	return next_map
+	
+func get_next_map():
+	if stages_completed > 0 and stages_completed % 10 == 0:
+		return "res://Scenes/boss_stage.tscn"
+	return get_random_map()
 
 func add_point():
 	score += 1
+	stages_completed += 1
 	print("Current Score: ", score)
 
 func try_save_best(run_score: int, run_time: float, run_rating: String):
