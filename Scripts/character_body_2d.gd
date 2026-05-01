@@ -19,6 +19,11 @@ var fall_start_played = false
 @onready var sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
 
+@onready var jump_fx = $JumpFX
+@onready var dash_fx = $DashFX
+@onready var death_fx = $DeathFX
+@onready var run_fx = $RunFX
+
 func _ready():
 	# Start timer when player spawns into the level
 	GameManager.start_level_timer()
@@ -65,6 +70,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		fall_start_played = false
+		jump_fx.play()
 
 	# 3. Handle Dash Input
 	if Input.is_action_just_pressed("move_dash") and dashes_left > 0:
@@ -94,6 +100,7 @@ func start_dash():
 	dashes_left -= 1
 	is_dashing = true
 	velocity = dash_direction.normalized() * DASH_SPEED
+	dash_fx.play()
 
 	var angle = dash_direction.angle()
 	if dash_direction.x < 0:
@@ -108,19 +115,23 @@ func start_dash():
 
 func update_animations(direction):
 	if is_dead:
+		if run_fx.playing: run_fx.stop()
 		return
 	if not can_move:
 		sprite.play("idle")
 		sprite.rotation = 0
+		if run_fx.playing: run_fx.stop()
 		return
 	if is_dashing:
 		sprite.play("dash")
+		if run_fx.playing: run_fx.stop()
 		return
 
 	sprite.rotation = 0
 	sprite.flip_v = false
 
 	if not is_on_floor():
+		if run_fx.playing: run_fx.stop()
 		if velocity.y > 0:
 			if not fall_start_played:
 				if sprite.animation != "fall_start":
@@ -138,8 +149,11 @@ func update_animations(direction):
 		if direction != 0:
 			sprite.play("run")
 			sprite.flip_h = direction < 0
+			if not run_fx.playing: 
+				run_fx.play(0.15)
 		else:
 			sprite.play("idle")
+			if run_fx.playing: run_fx.stop()
 
 func _on_dash_timer_timeout():
 	is_dashing = false
@@ -155,6 +169,7 @@ func die():
 	queue_redraw()
 	velocity = Vector2.ZERO
 	sprite.play("death")
+	death_fx.play()
 	GameManager.player_dead = true
 	GameManager.stop_level_timer()
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bf480knul22gq" path="res://Assets/6 Traps/2.png" id="1_ncutv"]
 [ext_resource type="Script" uid="uid://bsvitp6k70q3k" path="res://Scripts/buzzsaw.gd" id="1_p8a0q"]
+[ext_resource type="AudioStream" uid="uid://br28m505qbtbs" path="res://Assets/AudioFx/saw.mp3" id="3_khdda"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_euya5"]
 radius = 15.0
@@ -147,3 +148,8 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pnnyv")
 autoplay = "default"
 frame_progress = 0.42384914
+
+[node name="SawFX" type="AudioStreamPlayer2D" parent="." unique_id=399701073]
+stream = ExtResource("3_khdda")
+volume_db = -10.791
+autoplay = true
