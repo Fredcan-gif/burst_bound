@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready():
 	GameManager.reset_run()
+	BackgroundMusic.change_music(preload("res://Assets/bransboynd-industrial-work-389650.mp3"))
 	
 	if GameManager.best_rating == "":
 		best_rating_label.text = "Best Rating: —"
