@@ -46,5 +46,5 @@ func play_full_transition(target_scene: String):
 		
 		await $AnimationPlayer.animation_finished
 		
-		if new_player:
+		if new_player and not Dialogue.is_showing:
 			new_player.can_move = true

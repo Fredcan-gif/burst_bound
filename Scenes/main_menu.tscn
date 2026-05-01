@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://b2d8oiemj1su4"]
 
 [ext_resource type="Script" uid="uid://cj02ods6elvia" path="res://Scripts/main_menu.gd" id="1_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://bh2wqugalqi2t" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/3_Far_Background_Tile.png" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dpoilp1vd5oih" path="res://Assets/title_screen.png" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://dit6p3ojfvj76" path="res://Assets/bransboynd-industrial-work-389650.mp3" id="3_1ehe0"]
+
+[sub_resource type="Gradient" id="Gradient_1ehe0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ce3w2"]
+gradient = SubResource("Gradient_1ehe0")
 
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font_size = 50
@@ -34,18 +40,33 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="TextureRect2" type="TextureRect" parent="Menu/Button_manager" unique_id=1266641933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = 2.0
+offset_right = 1930.0
+offset_bottom = 1113.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ce3w2")
+expand_mode = 1
+
 [node name="TextureRect" type="TextureRect" parent="Menu/Button_manager" unique_id=1693177702]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 1940.0
-offset_bottom = 1095.0
+offset_left = -114.0
+offset_top = 9.0
+offset_right = 2018.0
+offset_bottom = 1120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_48xlc")
+expand_mode = 1
 
 [node name="Title" type="Label" parent="Menu/Button_manager" unique_id=746616950]
 layout_mode = 1
@@ -54,10 +75,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 712.0
-offset_top = 349.0
-offset_right = 1166.0
-offset_bottom = 444.0
+offset_left = 398.0
+offset_top = 513.0
+offset_right = 852.0
+offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -67,6 +88,26 @@ label_settings = SubResource("LabelSettings_jix8l")
 horizontal_alignment = 1
 uppercase = true
 
+[node name="Tutorial" type="Button" parent="Menu/Button_manager" unique_id=337530746]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 540.0
+offset_top = 657.0
+offset_right = 710.0
+offset_bottom = 748.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 43
+text = "Tutorial
+"
+flat = true
+
 [node name="Start" type="Button" parent="Menu/Button_manager" unique_id=1881931307]
 layout_mode = 1
 anchors_preset = 8
@@ -74,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 883.5
-offset_top = 463.0
-offset_right = 994.5
-offset_bottom = 554.0
+offset_left = 569.5
+offset_top = 572.0
+offset_right = 680.5
+offset_bottom = 663.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -93,10 +134,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 896.5
-offset_top = 560.0
-offset_right = 981.5
-offset_bottom = 651.0
+offset_left = 582.5
+offset_top = 754.0
+offset_right = 667.5
+offset_bottom = 845.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -111,27 +152,56 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1299.0
-offset_top = 311.0
-offset_right = 1569.0
-offset_bottom = 508.0
+offset_left = 970.0
+offset_top = 534.0
+offset_right = 1631.0
+offset_bottom = 731.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BestRatingLabel" type="Label" parent="BestRunContainer" unique_id=1514701763]
+[node name="RatingRow" type="HBoxContainer" parent="BestRunContainer" unique_id=1823377091]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BestRunContainer/RatingRow" unique_id=1929028731]
 layout_mode = 2
 text = "Best Rating: "
 label_settings = SubResource("LabelSettings_48xlc")
 
-[node name="BestScoreLabel" type="Label" parent="BestRunContainer" unique_id=2031708017]
+[node name="BestRatingLabel" type="Label" parent="BestRunContainer/RatingRow" unique_id=1514701763]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_48xlc")
+
+[node name="ScoreRow" type="HBoxContainer" parent="BestRunContainer" unique_id=647585420]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BestRunContainer/ScoreRow" unique_id=1121759742]
 layout_mode = 2
 text = "Best Score:"
 label_settings = SubResource("LabelSettings_48xlc")
 
-[node name="BestTimeLabel" type="Label" parent="BestRunContainer" unique_id=1552051818]
+[node name="BestScoreLabel" type="Label" parent="BestRunContainer/ScoreRow" unique_id=2031708017]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_48xlc")
+
+[node name="TimeRow" type="HBoxContainer" parent="BestRunContainer" unique_id=180911595]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BestRunContainer/TimeRow" unique_id=2113094627]
 layout_mode = 2
 text = "Best Timer: "
 label_settings = SubResource("LabelSettings_48xlc")
 
+[node name="BestTimeLabel" type="Label" parent="BestRunContainer/TimeRow" unique_id=1552051818]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_48xlc")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1426239650]
+stream = ExtResource("3_1ehe0")
+autoplay = true
+panning_strength = 0.0
+bus = &"BGM"
+
+[connection signal="pressed" from="Menu/Button_manager/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Menu/Button_manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/Button_manager/Quit" to="." method="_on_quit_pressed"]

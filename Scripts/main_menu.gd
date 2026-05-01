@@ -1,24 +1,23 @@
 extends Node2D
 
-@onready var best_rating_label = $BestRunContainer/BestRatingLabel
-@onready var best_score_label = $BestRunContainer/BestScoreLabel
-@onready var best_time_label = $BestRunContainer/BestTimeLabel
+@onready var best_rating_label = $BestRunContainer/RatingRow/BestRatingLabel
+@onready var best_score_label = $BestRunContainer/ScoreRow/BestScoreLabel
+@onready var best_time_label = $BestRunContainer/TimeRow/BestTimeLabel
 
 func _ready():
 	GameManager.reset_run()
-	BackgroundMusic.change_music(preload("res://Assets/bransboynd-industrial-work-389650.mp3"))
-	
+		
 	if GameManager.best_rating == "":
-		best_rating_label.text = "Best Rating: —"
-		best_score_label.text = "Best Score: —"
-		best_time_label.text = "Best Time: —"
+		best_rating_label.text = "—"
+		best_score_label.text = "—"
+		best_time_label.text = "—"
 	else:
 		var t = GameManager.best_time
 		var time_string = "%02d:%02d.%02d" % [int(t) / 60, int(t) % 60, int(fmod(t, 1.0) * 100)]
-		best_rating_label.text = "Best Rating: " + GameManager.best_rating
-		best_score_label.text = "Best Score: " + str(GameManager.best_score)
-		best_time_label.text = "Best Time: " + time_string
-
+		best_rating_label.text = GameManager.best_rating
+		best_score_label.text = str(GameManager.best_score)
+		best_time_label.text = time_string
+				
 func _on_quit_pressed():
 	get_tree().quit()
 
@@ -26,3 +25,6 @@ func _on_start_pressed() -> void:
 	GameManager.score = 0
 	var first_map = GameManager.get_random_map()
 	TransitionLayer.play_full_transition(first_map)
+	
+func _on_tutorial_pressed() -> void:
+	TransitionLayer.play_full_transition("res://Scenes/tutorial_room_1.tscn")

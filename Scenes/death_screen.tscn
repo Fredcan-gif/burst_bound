@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://croofj872yakp"]
 
-[ext_resource type="Script" uid="uid://7g0caopbtrfd" path="res://Scenes/death_screen.gd" id="1_8hps1"]
+[ext_resource type="Script" path="res://Scripts/death_screen.gd" id="1_rwas2"]
 [ext_resource type="Texture2D" uid="uid://7ttftyjrq0k7" path="res://Assets/clipboard.png" id="2_rwas2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwas2"]
 font_size = 50
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=724867970]
-script = ExtResource("1_8hps1")
+script = ExtResource("1_rwas2")
 
 [node name="ClipboardContainer" type="Control" parent="." unique_id=704794137]
 layout_mode = 3
