@@ -30,3 +30,7 @@
 - Improved controls
 - Added Tutorial mode
 - Added story (tentative)
+
+**5/2/2026 - Week 4 Progress:**
+- Added boss room which appears after every 10 stage clears
+- Leaderboard
