@@ -153,3 +153,4 @@ frame_progress = 0.42384914
 stream = ExtResource("3_khdda")
 volume_db = -10.791
 autoplay = true
+bus = &"Saw"

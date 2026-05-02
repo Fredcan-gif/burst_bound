@@ -185,7 +185,7 @@ func die():
 func _on_death_animation_finished():
 	if sprite.animation == "death":
 		await get_tree().create_timer(0.5).timeout
-		# Load and show death screen
+		get_tree().paused = true
 		var death_screen = load("res://Scenes/death_screen.tscn").instantiate()
 		get_tree().root.add_child(death_screen)
 		death_screen.show_results(GameManager.score, GameManager.level_time)

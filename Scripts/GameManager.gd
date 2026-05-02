@@ -51,14 +51,19 @@ func get_random_map():
 	return next_map
 	
 func get_next_map():
-	if stages_completed > 0 and stages_completed % 10 == 0:
-		return "res://Scenes/boss_stage.tscn"
+	print("Getting next map - stages_completed: ", stages_completed)
+	if stages_completed % 10 == 0 and stages_completed > 0:
+		print("Boss stage triggered!")
+		return "res://Scenes/boss_stage_1.tscn"
 	return get_random_map()
 
 func add_point():
 	score += 1
-	stages_completed += 1
 	print("Current Score: ", score)
+
+func complete_stage():
+	stages_completed += 1
+	print("Stages completed: ", stages_completed)
 
 func try_save_best(run_score: int, run_time: float, run_rating: String):
 	if is_tutorial:

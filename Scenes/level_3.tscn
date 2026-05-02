@@ -586,10 +586,6 @@ frame_progress = 0.44332922
 position = Vector2(14, 32)
 scale = Vector2(2.44, 2.44)
 
-[node name="Saw" parent="Traps" unique_id=2103720113 instance=ExtResource("6_53xsp")]
-position = Vector2(240.98357, 222.95082)
-scale = Vector2(2.6330884, 2.6330884)
-
 [node name="Saw2" parent="Traps" unique_id=674382746 instance=ExtResource("6_53xsp")]
 position = Vector2(268.03278, 405.32782)
 scale = Vector2(2.6330884, 2.6330884)

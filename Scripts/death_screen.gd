@@ -43,7 +43,6 @@ func show_results(score: int, time: float):
 	var milliseconds = int(fmod(time, 1.0) * 100)
 	var time_string = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 	
-	title_label.text = "MISSION FAILED"
 	score_label.text = "Score: " + str(score)
 	time_label.text = "Time: " + time_string
 	rating_label.text = rating
@@ -97,12 +96,14 @@ func calculate_rating(score: int, time: float) -> String:
 		return "D"
 
 func _on_main_menu():
+	get_tree().paused = false
 	TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
 	await TransitionLayer.mid_way
 	queue_free()
 
 func _on_restart():
 	GameManager.reset_run()
+	get_tree().paused = false
 	TransitionLayer.play_full_transition(GameManager.get_random_map())
 	await TransitionLayer.mid_way
 	queue_free()

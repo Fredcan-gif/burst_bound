@@ -4,24 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://dpoilp1vd5oih" path="res://Assets/title_screen.png" id="2_48xlc"]
 [ext_resource type="AudioStream" uid="uid://dit6p3ojfvj76" path="res://Assets/bransboynd-industrial-work-389650.mp3" id="3_1ehe0"]
 
-[sub_resource type="Gradient" id="Gradient_1ehe0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ce3w2"]
-gradient = SubResource("Gradient_1ehe0")
-
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font_size = 50
-font_color = Color(0, 0, 0, 1)
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ehe0"]
 font_size = 50
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
-font_size = 45
-font_color = Color(0, 0, 0, 1)
+font_size = 40
 
 [node name="Main Menu" type="Node2D" unique_id=1483382934]
 script = ExtResource("1_7vrkn")
@@ -44,7 +36,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect2" type="TextureRect" parent="Menu/Button_manager" unique_id=1266641933]
+[node name="TextureRect2" type="ColorRect" parent="Menu/Button_manager" unique_id=1081746953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,8 +47,7 @@ offset_right = 1930.0
 offset_bottom = 1113.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_ce3w2")
-expand_mode = 1
+color = Color(0.043137256, 0, 0.99607843, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Menu/Button_manager" unique_id=1693177702]
 layout_mode = 1
@@ -105,7 +96,7 @@ offset_right = 710.0
 offset_bottom = 748.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 43
 text = "Tutorial
@@ -125,7 +116,7 @@ offset_right = 680.5
 offset_bottom = 663.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 43
 text = "Start"
@@ -144,7 +135,7 @@ offset_right = 667.5
 offset_bottom = 845.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 43
 text = "Exit"
