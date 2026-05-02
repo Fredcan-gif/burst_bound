@@ -6,9 +6,9 @@ extends Node2D
 @onready var description_label = $Menu/Button_manager/DescriptionLabel
 
 const DESCRIPTIONS = {
-	"start": "Enter the gauntlet. Survive as long as you can.",
-	"tutorial": "Learn the basics before diving in.",
-	"exit": "Quit the game."
+	"start": "Traverse through endless rooms and bosses. Survive as long as you can.",
+	"tutorial": "Get to know the controls.",
+	"exit": "Exit the experiment."
 }
 
 func _ready():
