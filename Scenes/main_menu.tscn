@@ -202,6 +202,18 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_48xlc")
 
+[node name="LeaderboardContainer" type="VBoxContainer" parent="." unique_id=53335769]
+texture_filter = 1
+offset_left = 434.0
+offset_top = 100.0
+offset_right = 605.1866
+offset_bottom = 230.08461
+scale = Vector2(2.3600025, 2.3600025)
+
+[node name="RecordsList" type="VBoxContainer" parent="LeaderboardContainer" unique_id=-1793203120]
+clip_contents = true
+layout_mode = 2
+
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1426239650]
 stream = ExtResource("3_1ehe0")
 autoplay = true

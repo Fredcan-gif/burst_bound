@@ -64,6 +64,7 @@ func show_results(score: int, time: float):
 	for record in records:
 		var label = Label.new()
 		label.text = "#%d  %s  —  %d" % [int(record.rank), record.username, int(record.score)]
+		label.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		records_list.add_child(label)
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)

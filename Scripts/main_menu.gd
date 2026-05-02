@@ -33,6 +33,21 @@ func _ready():
 		best_rating_label.text = GameManager.best_rating
 		best_score_label.text = str(GameManager.best_score)
 		best_time_label.text = time_string
+		
+	_load_leaderboard()
+
+func _load_leaderboard():
+	var records_list = $LeaderboardContainer/RecordsList
+	if not records_list:
+		return
+	for child in records_list.get_children():
+		child.queue_free()
+	var records = await NakamaManager.fetch_leaderboard()
+	for record in records:
+		var label = Label.new()
+		label.text = "#%d  %s  —  %d" % [int(record.rank), record.username, int(record.score)]
+		label.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		records_list.add_child(label)
 				
 func _on_quit_pressed():
 	get_tree().quit()
