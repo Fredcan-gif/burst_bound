@@ -34,3 +34,4 @@
 **5/2/2026 - Week 4 Progress:**
 - Added boss room which appears after every 10 stage clears
 - Leaderboard
+- Video progress report: https://drive.google.com/file/d/1rnCN2hNdy_3-9Zgn-gLEYhrlGyF87sZA/view
