@@ -23,8 +23,6 @@ buses/default_bus_layout="uid://boswu028ul31j"
 GameManager="*uid://cps1q8yn5ue0m"
 TransitionLayer="*uid://biip007tepypg"
 Dialogue="*uid://82a2kh7wx5i3"
-Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
-NakamaManager="*uid://cr7ijh340qbtv"
 
 [display]
 

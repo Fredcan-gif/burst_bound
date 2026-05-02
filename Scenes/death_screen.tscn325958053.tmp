@@ -142,7 +142,7 @@ text = "Restart"
 
 [node name="LeaderboardContainer" type="VBoxContainer" parent="ClipboardContainer" unique_id=33335769]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 0
 offset_left = 706.0
 offset_top = 503.0
