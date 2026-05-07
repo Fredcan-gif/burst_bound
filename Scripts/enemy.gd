@@ -77,3 +77,7 @@ func _on_detection_area_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.has_method("die"):
 		body.die()
+		velocity.x = 0
+		chase_player = false
+		await get_tree().create_timer(0.1).timeout
+		chase_player = player != null

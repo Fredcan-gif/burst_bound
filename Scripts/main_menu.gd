@@ -38,7 +38,7 @@ func _on_quit_pressed():
 
 func _on_start_pressed() -> void:
 	GameManager.score = 0
-	var first_map = GameManager.get_random_map()
+	var first_map = GameManager.get_next_map()
 	TransitionLayer.play_full_transition(first_map)
 
 func _on_tutorial_pressed() -> void:

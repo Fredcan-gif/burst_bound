@@ -118,6 +118,6 @@ func _on_main_menu():
 func _on_restart():
 	GameManager.reset_run()
 	get_tree().paused = false
-	TransitionLayer.play_full_transition(GameManager.get_random_map())
+	TransitionLayer.play_full_transition(GameManager.get_next_map())
 	await TransitionLayer.mid_way
 	queue_free()

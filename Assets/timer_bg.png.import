@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3qn654k0emdo"
-path="res://.godot/imported/SpaceStation_Projectiles_Sheet.png-1bd1ceab50c106ecc9d08a5a1d6e0c8d.ctex"
+uid="uid://btd53vakll5yv"
+path="res://.godot/imported/timer_bg.png-7ad2bf70c3c2e921e7f4d97e0cf973fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpaceStationAda/SpaceStation_Projectiles_Sheet.png"
-dest_files=["res://.godot/imported/SpaceStation_Projectiles_Sheet.png-1bd1ceab50c106ecc9d08a5a1d6e0c8d.ctex"]
+source_file="res://Assets/timer_bg.png"
+dest_files=["res://.godot/imported/timer_bg.png-7ad2bf70c3c2e921e7f4d97e0cf973fe.ctex"]
 
 [params]
 

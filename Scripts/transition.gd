@@ -2,8 +2,6 @@ extends CanvasLayer
 signal mid_way
 
 func _ready():
-	$TopBar.position.y = -216
-	$BottomBar.position.y = 432
 	$AnimationPlayer.stop()
 
 func _process(_delta):
@@ -15,17 +13,18 @@ func _process(_delta):
 	var is_main_menu = scene_path == "res://Scenes/main_menu.tscn"
 	var is_tutorial = "tutorial" in scene_path.to_lower()
 	var should_show = not is_main_menu and not is_tutorial and not GameManager.player_dead
-
-	$Label.visible = should_show
-	$TimerLabel.visible = should_show
+	
+	$HUDContainer/Label.visible = should_show
+	$HUDContainer/TimerLabel.visible = should_show
+	$HUDContainer/HUDBG.visible = should_show
 	
 	if should_show:
-		$Label.text = "Score: " + str(GameManager.score)
+		$HUDContainer/Label.text = "Score: " + str(GameManager.score)
 		var total_seconds = GameManager.level_time
 		var minutes = int(total_seconds) / 60
 		var seconds = int(total_seconds) % 60
 		var milliseconds = int(fmod(total_seconds, 1.0) * 100)
-		$TimerLabel.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
+		$HUDContainer/TimerLabel.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 
 func play_full_transition(target_scene: String):
 	var old_player = get_tree().get_first_node_in_group("Player")
