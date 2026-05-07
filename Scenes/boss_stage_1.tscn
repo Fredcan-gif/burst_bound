@@ -13,10 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://b78lf0w4st0n7" path="res://Assets/Bosses/3/Death.png" id="6_xvcy7"]
 [ext_resource type="Texture2D" uid="uid://byek0q62scyj0" path="res://Assets/Bosses/3/BOOM_death.png" id="8_3o878"]
 [ext_resource type="Texture2D" uid="uid://c8bmfh3ysaa35" path="res://Assets/Bosses/3/Special.png" id="8_xvcy7"]
+[ext_resource type="Texture2D" uid="uid://65hjyhqdmmfv" path="res://Assets/Bosses/3/Attack4_2.png" id="9_2fdrs"]
+[ext_resource type="Texture2D" uid="uid://drw58esue2fu1" path="res://Assets/Bosses/3/Attack4_3.png" id="10_o4x8l"]
 [ext_resource type="Script" uid="uid://bak32su57tqx" path="res://Scripts/boss_exit.gd" id="11_p74ja"]
 [ext_resource type="AudioStream" uid="uid://dlccnlr04jq50" path="res://Assets/Bosses/Sounds/boss_alert.mp3" id="12_b0wcf"]
 [ext_resource type="AudioStream" uid="uid://dj1cpoqjv2f76" path="res://Assets/Bosses/Sounds/boss_hurt.mp3" id="13_k18k3"]
 [ext_resource type="Texture2D" uid="uid://b7kiqq5v7vbas" path="res://Assets/Health/rpg (1).png" id="13_vjp67"]
+[ext_resource type="Texture2D" uid="uid://c47n4kae7qq3v" path="res://Assets/Bosses/3/Hurt.png" id="14_fs2si"]
 [ext_resource type="AudioStream" uid="uid://cv223j2jq0oh4" path="res://Assets/Bosses/Sounds/boss_dead.mp3" id="14_sgdeb"]
 [ext_resource type="AudioStream" uid="uid://b25t1wagka2p1" path="res://Assets/Bosses/Sounds/boss_charge.mp3" id="15_2fdrs"]
 [ext_resource type="AudioStream" uid="uid://b77ktlgnbam24" path="res://Assets/Bosses/Sounds/boss_hit.mp3" id="16_o4x8l"]
@@ -1400,6 +1403,30 @@ sources/0 = SubResource("TileSetAtlasSource_vjp67")
 [sub_resource type="CircleShape2D" id="CircleShape2D_da68t"]
 radius = 23.07692
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld0j2"]
+atlas = ExtResource("9_2fdrs")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8oi3"]
+atlas = ExtResource("9_2fdrs")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhfj0"]
+atlas = ExtResource("10_o4x8l")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5y4j"]
+atlas = ExtResource("10_o4x8l")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obe0v"]
+atlas = ExtResource("10_o4x8l")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gshhf"]
+atlas = ExtResource("10_o4x8l")
+region = Rect2(216, 0, 72, 72)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d005l"]
 atlas = ExtResource("8_xvcy7")
 region = Rect2(1, 7, 71, 56)
@@ -1440,6 +1467,14 @@ region = Rect2(288, 0, 48, 48)
 atlas = ExtResource("8_3o878")
 region = Rect2(336, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmu0u"]
+atlas = ExtResource("14_fs2si")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7rkm"]
+atlas = ExtResource("14_fs2si")
+region = Rect2(72, 0, 72, 72)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3hbu"]
 atlas = ExtResource("8_xvcy7")
 region = Rect2(1, 7, 71, 56)
@@ -1458,6 +1493,29 @@ region = Rect2(214, 7, 71, 56)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vk556"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld0j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8oi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhfj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5y4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obe0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gshhf")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d005l")
@@ -1492,6 +1550,17 @@ animations = [{
 "loop": false,
 "name": &"death",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmu0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7rkm")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1641,7 +1710,7 @@ shape = SubResource("CircleShape2D_da68t")
 texture_filter = 1
 scale = Vector2(1.1944599, 1.1944594)
 sprite_frames = SubResource("SpriteFrames_vk556")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="BulletTimer" type="Timer" parent="Boss" unique_id=528115609]
