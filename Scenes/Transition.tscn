@@ -108,6 +108,7 @@ grow_horizontal = 2
 scale = Vector2(0.7200049, 0.7200049)
 
 [node name="HUDBG" type="TextureRect" parent="HUDContainer" unique_id=1441051500]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -151,6 +152,7 @@ horizontal_alignment = 1
 libraries/ = SubResource("AnimationLibrary_jpf8g")
 
 [node name="Top" type="TextureRect" parent="." unique_id=463771272]
+texture_filter = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -540.0
@@ -158,6 +160,7 @@ grow_horizontal = 2
 texture = ExtResource("2_1l5q3")
 
 [node name="Bar" type="TextureRect" parent="." unique_id=192668198]
+texture_filter = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
