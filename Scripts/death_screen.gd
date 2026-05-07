@@ -9,12 +9,29 @@ extends CanvasLayer
 @onready var restart_button = $ClipboardContainer/RestartButton
 @onready var clipboard_image = $ClipboardContainer/ClipboardImage
 @onready var leaderboard_container = $ClipboardContainer/LeaderboardContainer
-@onready var records_list = $ClipboardContainer/LeaderboardContainer/RecordsList
+@onready var records_list = $ClipboardContainer/LeaderboardContainer/LeaderboardScroll/RecordsList
 @onready var leaderboard_title = $ClipboardContainer/LeaderboardContainer/LeaderboardTitle
+@onready var leaderboard_scroll = $ClipboardContainer/LeaderboardContainer/LeaderboardScroll
 
 var tween: Tween
 var screen_height: float
 var orig_pos = {}
+
+# Medal colors for top 3
+const MEDAL_COLORS = {
+	0: Color(1.0, 0.84, 0.0),    # Gold
+	1: Color(0.75, 0.75, 0.75),  # Silver
+	2: Color(0.8, 0.5, 0.2),     # Bronze
+}
+
+const RATING_COLORS = {
+	"S":  Color(1.0, 0.84, 0.0),   # Gold
+	"A+": Color(0.0, 1.0, 0.5),    # Bright green
+	"A":  Color(0.4, 0.9, 0.4),    # Green
+	"B":  Color(0.4, 0.7, 1.0),    # Blue
+	"C":  Color(1.0, 0.8, 0.3),    # Yellow
+	"D":  Color(0.8, 0.4, 0.4),    # Red
+}
 
 func _ready():
 	screen_height = get_viewport().size.y
@@ -53,17 +70,19 @@ func _ready():
 
 func show_results(score: int, time: float):
 	var rating = calculate_rating(score, time)
-	var minutes = int(time / 60.0)
-	var seconds = int(time) % 60
-	var milliseconds = int(fmod(time, 1.0) * 100)
-	var time_string = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
+	var time_string = _format_time(time)
 
 	score_label.text = "Score: " + str(score)
 	time_label.text = "Time: " + time_string
 	rating_label.text = rating
-	leaderboard_title.text = "TOP 10"
+	leaderboard_title.text = "— TOP 10 —"
+
+	# Color the rating label
+	if rating in RATING_COLORS:
+		rating_label.modulate = RATING_COLORS[rating]
 
 	GameManager.try_save_best(score, time, rating)
+	_populate_leaderboard()
 
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -81,6 +100,7 @@ func show_results(score: int, time: float):
 	tween.tween_property(leaderboard_container, "position:y", orig_pos["leaderboard_container"].y, duration)
 
 	await tween.finished
+	_animate_leaderboard_rows()
 
 	var fade_tween = create_tween()
 	fade_tween.set_parallel(true)
@@ -91,6 +111,110 @@ func show_results(score: int, time: float):
 	fade_tween.tween_property(menu_button, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(restart_button, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(leaderboard_container, "modulate:a", 1.0, 0.5)
+
+func _populate_leaderboard():
+	leaderboard_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for child in records_list.get_children():
+		child.queue_free()
+
+	var records = GameManager.get_top_records()  # Expected: Array of {score, time, rating}
+
+	if records.is_empty():
+		var empty_label = Label.new()
+		empty_label.text = "No records yet!"
+		empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		empty_label.modulate = Color(0.6, 0.6, 0.6)
+		records_list.add_child(empty_label)
+		return
+
+	for i in range(min(records.size(), 10)):
+		var record = records[i]
+		var row = _create_leaderboard_row(i, record)
+		row.modulate.a = 0  # Start invisible for animation
+		records_list.add_child(row)
+
+func _create_leaderboard_row(index: int, record: Dictionary) -> HBoxContainer:
+	var row = HBoxContainer.new()
+	row.set_h_size_flags(Control.SIZE_EXPAND_FILL)
+	row.add_theme_constant_override("separation", 6)
+
+	# Highlight the current run's row (last saved)
+	var is_new = GameManager.is_latest_record(index)
+	if is_new:
+		var bg = ColorRect.new()
+		bg.color = Color(1.0, 1.0, 0.5, 0.12)
+		bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		row.add_child(bg)
+		row.move_child(bg, 0)
+
+	# Rank label (medal for top 3, number otherwise)
+	var rank_label = Label.new()
+	rank_label.custom_minimum_size.x = 28
+	rank_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if index < 3:
+		rank_label.text = ["🥇", "🥈", "🥉"][index]
+	else:
+		rank_label.text = "#" + str(index + 1)
+		rank_label.modulate = Color(0.7, 0.7, 0.7)
+	row.add_child(rank_label)
+
+	# Separator
+	var sep = VSeparator.new()
+	sep.modulate = Color(0.5, 0.5, 0.5, 0.5)
+	row.add_child(sep)
+
+	# Score
+	var score_lbl = Label.new()
+	score_lbl.text = str(record.get("score", 0))
+	score_lbl.set_h_size_flags(Control.SIZE_EXPAND_FILL)
+	score_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if index == 0:
+		score_lbl.modulate = MEDAL_COLORS[0]
+	row.add_child(score_lbl)
+
+	# Time
+	var time_lbl = Label.new()
+	time_lbl.text = _format_time(record.get("time", 0.0))
+	time_lbl.set_h_size_flags(Control.SIZE_EXPAND_FILL)
+	time_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	time_lbl.modulate = Color(0.8, 0.9, 1.0)
+	row.add_child(time_lbl)
+
+	# Rating badge
+	var rating_str = record.get("rating", "D")
+	var rating_lbl = Label.new()
+	rating_lbl.text = rating_str
+	rating_lbl.custom_minimum_size.x = 30
+	rating_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if rating_str in RATING_COLORS:
+		rating_lbl.modulate = RATING_COLORS[rating_str]
+	row.add_child(rating_lbl)
+
+	# NEW badge if this is the latest entry
+	if is_new:
+		var new_lbl = Label.new()
+		new_lbl.text = "NEW"
+		new_lbl.modulate = Color(1.0, 1.0, 0.3)
+		new_lbl.custom_minimum_size.x = 36
+		new_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		row.add_child(new_lbl)
+
+	return row
+
+func _animate_leaderboard_rows():
+	var rows = records_list.get_children()
+	for i in range(rows.size()):
+		var row = rows[i]
+		var delay = i * 0.06
+		var row_tween = create_tween()
+		row_tween.tween_interval(delay)
+		row_tween.tween_property(row, "modulate:a", 1.0, 0.2)
+
+func _format_time(time: float) -> String:
+	var minutes = int(time / 60.0)
+	var seconds = int(time) % 60
+	var milliseconds = int(fmod(time, 1.0) * 100)
+	return "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 
 func calculate_rating(score: int, time: float) -> String:
 	var score_points = score * 100

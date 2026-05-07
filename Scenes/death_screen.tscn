@@ -106,6 +106,39 @@ scale = Vector2(2.3600025, 2.3600025)
 text = "D"
 label_settings = SubResource("LabelSettings_rwas2")
 
+[node name="LeaderboardContainer" type="VBoxContainer" parent="ClipboardContainer" unique_id=33335769]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -132.0
+offset_right = -124.4917
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+mouse_filter = 2
+
+[node name="LeaderboardTitle" type="Label" parent="ClipboardContainer/LeaderboardContainer" unique_id=1558896132]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="LeaderboardScroll" type="ScrollContainer" parent="ClipboardContainer/LeaderboardContainer" unique_id=84332503]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RecordsList" type="VBoxContainer" parent="ClipboardContainer/LeaderboardContainer/LeaderboardScroll" unique_id=1796731472]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+
 [node name="MainMenuButton" type="Button" parent="ClipboardContainer" unique_id=2132490009]
 texture_filter = 1
 layout_mode = 1
@@ -114,10 +147,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 102.0
-offset_top = 238.00006
-offset_right = 139.0
-offset_bottom = 269.00006
+offset_left = 158.0
+offset_top = 238.0
+offset_right = 195.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
@@ -131,36 +164,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 72.0
+offset_left = 128.0
 offset_top = 326.0
-offset_right = 137.0
+offset_right = 193.0
 offset_bottom = 357.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 text = "Restart"
-
-[node name="LeaderboardContainer" type="VBoxContainer" parent="ClipboardContainer" unique_id=33335769]
-texture_filter = 1
-custom_minimum_size = Vector2(0, 250)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -252.99994
-offset_top = -132.0
-offset_right = -114.99994
-offset_bottom = 118.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.3600025, 2.3600025)
-
-[node name="LeaderboardTitle" type="Label" parent="ClipboardContainer/LeaderboardContainer" unique_id=1558896132]
-layout_mode = 2
-text = "Leaderboard"
-
-[node name="RecordsList" type="VBoxContainer" parent="ClipboardContainer/LeaderboardContainer" unique_id=1796731472]
-clip_contents = true
-layout_mode = 2
