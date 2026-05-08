@@ -35,3 +35,10 @@
 - Added boss room which appears after every 10 stage clears
 - Leaderboard
 - Video progress report: https://drive.google.com/file/d/1rnCN2hNdy_3-9Zgn-gLEYhrlGyF87sZA/view
+
+**5/8/2026 - Week 5 Progress:**
+- Updated Main Menu and UI
+- Revamped stage logic and designs
+- Implemented working leaderboard/top score board
+- Added more traps and SFX
+- Finalized player design
