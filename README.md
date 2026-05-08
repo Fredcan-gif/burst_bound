@@ -42,3 +42,4 @@
 - Implemented working leaderboard/top score board
 - Added more traps and SFX
 - Finalized player design
+- Added stage BGMs
