@@ -2,19 +2,23 @@
 
 [ext_resource type="Script" uid="uid://b8ocnwkfu48ri" path="res://Scripts/transition.gd" id="1_ws5yv"]
 [ext_resource type="Texture2D" uid="uid://j1akpevfum4k" path="res://Assets/door_transition.png" id="2_1l5q3"]
+[ext_resource type="FontFile" uid="uid://qv0a7t6wkige" path="res://Assets/SFDigitalReadout-Heavy.ttf" id="3_274lt"]
 [ext_resource type="Texture2D" uid="uid://r5uwh6ubh5xl" path="res://Assets/door_transitiondown.png" id="3_mh0y2"]
 [ext_resource type="AudioStream" uid="uid://isvy1jjuj6h5" path="res://Assets/AudioFx/transition.mp3" id="4_mh0y2"]
 [ext_resource type="AudioStream" uid="uid://b32hthfeg57uh" path="res://Assets/AudioFx/door_alarm.mp3" id="5_5f4v5"]
 [ext_resource type="Texture2D" uid="uid://btd53vakll5yv" path="res://Assets/timer_bg.png" id="6_g0jo3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ws5yv"]
-font_size = 28
+font = ExtResource("3_274lt")
+font_size = 60
+font_color = Color(1, 0, 0, 1)
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ml2rw"]
-font_size = 57
-outline_size = 7
+font = ExtResource("3_274lt")
+font_size = 90
+font_color = Color(1, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_jaa4l"]
@@ -123,6 +127,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="HUDContainer" unique_id=326698301]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -134,19 +139,22 @@ offset_bottom = 190.38785
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_ws5yv")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="HUDContainer" unique_id=1323104715]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -178.33224
-offset_top = 12.499915
+offset_top = 16.666553
 offset_right = 150.83218
-offset_bottom = 90.499916
+offset_bottom = 94.66655
 grow_horizontal = 2
 label_settings = SubResource("LabelSettings_ml2rw")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1740572488]
 libraries/ = SubResource("AnimationLibrary_jpf8g")

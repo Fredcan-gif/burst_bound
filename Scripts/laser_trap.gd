@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var laser_hitbox = $LaserHitbox
+@onready var activate_sfx = $ActivateSFX
 
 func _ready():
 	laser_hitbox.monitoring = false
@@ -19,6 +20,7 @@ func _ready():
 
 func start_activate():
 	sprite.play("activate")
+	activate_sfx.play()
 
 func start_deactivate():
 	laser_hitbox.set_deferred("monitoring", false)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8nfcr4d53nnd" path="res://Assets/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Traps/laser_activate.png" id="2_lywbh"]
 [ext_resource type="Texture2D" uid="uid://lmvyimb70soe" path="res://Assets/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Traps/laser_deactivate.png" id="3_6sd6k"]
 [ext_resource type="Texture2D" uid="uid://bhcv526u360xr" path="res://Assets/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Traps/laser_idle.png" id="4_jgy4n"]
+[ext_resource type="AudioStream" uid="uid://c5jnw24wxvlvv" path="res://Assets/AudioFx/laser_fire.mp3" id="5_6sd6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lywbh"]
 size = Vector2(10, 32)
@@ -236,3 +237,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_iqy8x")
 animation = &"idle"
 frame_progress = 0.12995805
+
+[node name="ActivateSFX" type="AudioStreamPlayer2D" parent="." unique_id=1208460577]
+stream = ExtResource("5_6sd6k")
+bus = &"Laser"

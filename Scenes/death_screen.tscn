@@ -2,14 +2,37 @@
 
 [ext_resource type="Script" uid="uid://7g0caopbtrfd" path="res://Scripts/death_screen.gd" id="1_rwas2"]
 [ext_resource type="Texture2D" uid="uid://7ttftyjrq0k7" path="res://Assets/clipboard.png" id="2_rwas2"]
+[ext_resource type="FontFile" uid="uid://dqc3acnvawvud" path="res://Assets/ProgressPersonalUse-EaJdz.ttf" id="3_tseak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_amiou"]
+font = ExtResource("3_tseak")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_vb6s7"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpvs2"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwas2"]
-font_size = 50
+font = ExtResource("3_tseak")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_tseak"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=724867970]
 process_mode = 3
 layer = 3
 script = ExtResource("1_rwas2")
+
+[node name="BlackOverlay" type="ColorRect" parent="." unique_id=1738721513]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5764706)
 
 [node name="ClipboardContainer" type="Control" parent="." unique_id=704794137]
 layout_mode = 3
@@ -28,33 +51,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -592.3125
-offset_top = -657.0
-offset_right = 592.3125
-offset_bottom = 527.625
+offset_left = -487.15625
+offset_top = -613.0
+offset_right = 487.15625
+offset_bottom = 571.625
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_rwas2")
 
 [node name="TitleLabel" type="Label" parent="ClipboardContainer" unique_id=454094779]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -330.9999
-offset_right = -16.0
-offset_bottom = -307.9999
+offset_left = -285.0
+offset_top = -314.0
+offset_right = -43.0
+offset_bottom = -288.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 text = "TEST EVALUATION"
+label_settings = SubResource("LabelSettings_amiou")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="ClipboardContainer" unique_id=1151574334]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,9 +95,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 text = "Score: 0"
+label_settings = SubResource("LabelSettings_vb6s7")
 
 [node name="TimeLabel" type="Label" parent="ClipboardContainer" unique_id=1668812710]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -86,89 +113,99 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 text = "Time: 00:00.00"
+label_settings = SubResource("LabelSettings_tpvs2")
 
 [node name="RatingLabel" type="Label" parent="ClipboardContainer" unique_id=873820299]
 visibility_layer = 2
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 126.00012
-offset_top = -223.0
-offset_right = 166.00012
-offset_bottom = -154.0
+offset_left = -1.0
+offset_top = -199.00003
+offset_right = 140.28699
+offset_bottom = -108.00003
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.21747553
 scale = Vector2(2.3600025, 2.3600025)
 text = "D"
 label_settings = SubResource("LabelSettings_rwas2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeaderboardContainer" type="VBoxContainer" parent="ClipboardContainer" unique_id=33335769]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.0
-offset_top = -132.0
-offset_right = -124.4917
-offset_bottom = 118.0
+offset_left = -289.99994
+offset_top = -2.0
+offset_right = -45.932434
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
 mouse_filter = 2
 
 [node name="LeaderboardTitle" type="Label" parent="ClipboardContainer/LeaderboardContainer" unique_id=1558896132]
+texture_filter = 2
 layout_mode = 2
-text = "Leaderboard"
+text = "- TOP RECORDS -"
+label_settings = SubResource("LabelSettings_tseak")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeaderboardScroll" type="ScrollContainer" parent="ClipboardContainer/LeaderboardContainer" unique_id=84332503]
+texture_filter = 2
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="RecordsList" type="VBoxContainer" parent="ClipboardContainer/LeaderboardContainer/LeaderboardScroll" unique_id=1796731472]
+texture_filter = 2
 clip_contents = true
 layout_mode = 2
 mouse_filter = 2
 
 [node name="MainMenuButton" type="Button" parent="ClipboardContainer" unique_id=2132490009]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 158.0
-offset_top = 238.0
-offset_right = 195.0
-offset_bottom = 269.0
+offset_left = -274.0
+offset_top = -96.00003
+offset_right = -237.0
+offset_bottom = -65.00003
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.3600025, 2.3600025)
+scale = Vector2(1.6800025, 1.6800025)
 text = "Exit"
 
 [node name="RestartButton" type="Button" parent="ClipboardContainer" unique_id=1099934409]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 128.0
-offset_top = 326.0
-offset_right = 193.0
-offset_bottom = 357.0
+offset_left = -131.00012
+offset_top = -98.0
+offset_right = -66.00012
+offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.3600025, 2.3600025)
+scale = Vector2(1.6800025, 1.6800025)
 text = "Restart"
