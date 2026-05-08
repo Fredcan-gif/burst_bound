@@ -174,6 +174,7 @@ func die():
 	death_fx.play()
 	GameManager.player_dead = true
 	GameManager.stop_level_timer()
+	MusicManager.on_player_die()
 	
 	# Disable collision but keep sprite in place
 	collision.set_deferred("disabled", true)

@@ -43,6 +43,9 @@ func _ready():
 	refill_map_pool()
 	load_best()
 	load_leaderboard()
+	
+func _start_music():
+	MusicManager.play_for_difficulty("easy")
 
 func _process(delta):
 	if timer_running:
@@ -78,10 +81,10 @@ func advance_difficulty():
 	match current_difficulty:
 		"easy":
 			current_difficulty = "medium"
-			print("Difficulty: Medium")
+			MusicManager.play_for_difficulty("medium")
 		"medium":
 			current_difficulty = "hard"
-			print("Difficulty: Hard")
+			MusicManager.play_for_difficulty("hard")
 		"hard":
 			print("Already at max difficulty")
 	refill_map_pool()
@@ -209,9 +212,7 @@ func load_leaderboard():
 			"time":   config.get_value("leaderboard", "time_%d"   % i, 0.0),
 			"rating": config.get_value("leaderboard", "rating_%d" % i, "D"),
 		})
-
-# ─── Run reset ────────────────────────────────────────────────────────────────
-
+		
 func reset_run():
 	score = 0
 	level_time = 0.0

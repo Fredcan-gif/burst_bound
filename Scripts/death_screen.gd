@@ -52,7 +52,6 @@ func _ready():
 	score_label.modulate.a = 0
 	time_label.modulate.a = 0
 	rating_label.modulate.a = 0
-	title_label.modulate.a = 0
 	menu_button.modulate.a = 0
 	restart_button.modulate.a = 0
 	leaderboard_container.modulate.a = 0
@@ -87,7 +86,7 @@ func show_results(score: int, time: float):
 
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_trans(Tween.TRANS_QUART)
 	tween.set_parallel(true)
 	var duration = 0.7
 
@@ -99,20 +98,19 @@ func show_results(score: int, time: float):
 	tween.tween_property(menu_button, "position:y", orig_pos["menu_button"].y, duration)
 	tween.tween_property(restart_button, "position:y", orig_pos["restart_button"].y, duration)
 	tween.tween_property(leaderboard_container, "position:y", orig_pos["leaderboard_container"].y, duration)
+	tween.tween_property(black_overlay, "modulate:a", 1.0, duration)
 
 	await tween.finished
 	_animate_leaderboard_rows()
 
 	var fade_tween = create_tween()
 	fade_tween.set_parallel(true)
-	fade_tween.tween_property(title_label, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(score_label, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(time_label, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(rating_label, "modulate:a", 1.0, 0.5)
 	fade_tween.tween_property(menu_button, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(restart_button, "modulate:a", 1.0, 0.3)
 	fade_tween.tween_property(leaderboard_container, "modulate:a", 1.0, 0.5)
-	fade_tween.tween_property(black_overlay, "modulate:a", 1.0, 0.7)
 
 func _populate_leaderboard():
 	leaderboard_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -237,6 +235,7 @@ func calculate_rating(score: int, time: float) -> String:
 		return "D"
 
 func _on_main_menu():
+	MusicManager.reset_to_menu()
 	get_tree().paused = false
 	TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
 	await TransitionLayer.mid_way
@@ -244,6 +243,8 @@ func _on_main_menu():
 
 func _on_restart():
 	GameManager.reset_run()
+	MusicManager.reset()
+	MusicManager.play_for_difficulty(GameManager.current_difficulty)
 	get_tree().paused = false
 	TransitionLayer.play_full_transition(GameManager.get_next_map())
 	await TransitionLayer.mid_way

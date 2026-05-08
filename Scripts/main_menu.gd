@@ -7,8 +7,8 @@ extends Node2D
 @onready var records_list = $LeaderboardContainer/RecordsList
 
 const DESCRIPTIONS = {
-	"start": "Traverse through endless rooms and bosses. Survive as long as you can.",
-	"tutorial": "Get to know the controls.",
+	"start": "Survive and traverse through endless rooms and bosses. Each stage becomes increasingly difficult.",
+	"tutorial": "Get to know the controls of the experiment.",
 	"exit": "Exit the experiment."
 }
 
@@ -61,7 +61,7 @@ func _populate_leaderboard():
 		var empty_label = Label.new()
 		empty_label.text = "No records yet!"
 		empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		empty_label.modulate = Color(0.6, 0.6, 0.6)
+		empty_label.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		empty_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		records_list.add_child(empty_label)
 		return
@@ -128,6 +128,7 @@ func _on_quit_pressed():
 
 func _on_start_pressed() -> void:
 	GameManager.score = 0
+	MusicManager.play_for_difficulty("easy")
 	var first_map = GameManager.get_next_map()
 	TransitionLayer.play_full_transition(first_map)
 

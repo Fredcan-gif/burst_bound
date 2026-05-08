@@ -168,6 +168,7 @@ func die():
 	collision_mask = 0 
 	hit_area.monitoring = false
 	hit_area.monitorable = false
+	MusicManager.play_for_difficulty(GameManager.current_difficulty)
 	exit_door.set_deferred("monitoring", true)
 	exit_door.set_deferred("monitorable", true)
 	

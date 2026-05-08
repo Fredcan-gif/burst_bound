@@ -7,6 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_amiou"]
 font = ExtResource("3_tseak")
 font_size = 25
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vb6s7"]
 font_color = Color(0, 0, 0, 1)
@@ -124,10 +125,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -199.00003
-offset_right = 140.28699
-offset_bottom = -108.00003
+offset_left = -98.99994
+offset_top = -211.99997
+offset_right = 118.07373
+offset_bottom = -120.99997
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.21747553

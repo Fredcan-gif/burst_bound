@@ -1726,22 +1726,27 @@ shape = SubResource("CircleShape2D_xvcy7")
 [node name="AlertSFX" type="AudioStreamPlayer2D" parent="Boss" unique_id=472748313]
 position = Vector2(0, -7.479792e-06)
 stream = ExtResource("12_b0wcf")
+bus = &"Boss"
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="Boss" unique_id=1765951807]
 position = Vector2(0, -7.479792e-06)
 stream = ExtResource("13_k18k3")
+bus = &"Boss"
 
 [node name="DeadSFX" type="AudioStreamPlayer2D" parent="Boss" unique_id=1878351344]
 position = Vector2(0, -7.479792e-06)
 stream = ExtResource("14_sgdeb")
+bus = &"Boss"
 
 [node name="ChargeSFX" type="AudioStreamPlayer2D" parent="Boss" unique_id=1095578672]
 position = Vector2(0, -7.479792e-06)
 stream = ExtResource("15_2fdrs")
+bus = &"Boss"
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="Boss" unique_id=2123519610]
 position = Vector2(0, -7.479792e-06)
 stream = ExtResource("16_o4x8l")
+bus = &"Boss"
 
 [node name="ChargeIndicator" type="Line2D" parent="." unique_id=255587970]
 

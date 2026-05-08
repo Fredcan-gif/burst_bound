@@ -1423,27 +1423,27 @@ position = Vector2(198.36084, 32.786903)
 scale = Vector2(4.175917, 4.175917)
 
 [node name="Spike" parent="Traps" unique_id=1538011084 instance=ExtResource("6_cqqx5")]
-position = Vector2(159.00002, 401.00003)
+position = Vector2(150.40997, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike2" parent="Traps" unique_id=1347570258 instance=ExtResource("6_cqqx5")]
-position = Vector2(189, 401.00003)
+position = Vector2(180.40996, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike3" parent="Traps" unique_id=2006001839 instance=ExtResource("6_cqqx5")]
-position = Vector2(219, 401.00003)
+position = Vector2(210.40996, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike4" parent="Traps" unique_id=214041990 instance=ExtResource("6_cqqx5")]
-position = Vector2(248.99998, 401.00003)
+position = Vector2(240.40994, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike5" parent="Traps" unique_id=298922904 instance=ExtResource("6_cqqx5")]
-position = Vector2(279, 401.00003)
+position = Vector2(270.40994, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike6" parent="Traps" unique_id=1603014711 instance=ExtResource("6_cqqx5")]
-position = Vector2(308.99997, 401.00003)
+position = Vector2(300.4099, 401.00003)
 scale = Vector2(1.9199976, 1.9199976)
 
 [node name="Spike7" parent="Traps" unique_id=1809775369 instance=ExtResource("6_cqqx5")]

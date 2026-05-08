@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cychcf0hiedbs"]
+
+[ext_resource type="Script" uid="uid://bpyxoyt62jbxn" path="res://Scripts/music_manager.gd" id="1_760hw"]
+
+[node name="MusicManager" type="Node2D" unique_id=952489660]
+process_mode = 3
+script = ExtResource("1_760hw")
+
+[node name="AudioStreamPlayerA" type="AudioStreamPlayer" parent="." unique_id=893890319]
+process_mode = 3
+bus = &"Stage Music"
+
+[node name="AudioStreamPlayerB" type="AudioStreamPlayer" parent="." unique_id=732677072]
+process_mode = 3
+bus = &"Stage Music"

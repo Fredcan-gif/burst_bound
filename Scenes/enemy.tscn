@@ -120,6 +120,7 @@ shape = SubResource("RectangleShape2D_afpow")
 stream = ExtResource("4_287tu")
 volume_db = -14.0
 autoplay = true
+bus = &"Player"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
