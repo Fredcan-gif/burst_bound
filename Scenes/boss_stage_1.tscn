@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://cv223j2jq0oh4" path="res://Assets/Bosses/Sounds/boss_dead.mp3" id="14_sgdeb"]
 [ext_resource type="AudioStream" uid="uid://b25t1wagka2p1" path="res://Assets/Bosses/Sounds/boss_charge.mp3" id="15_2fdrs"]
 [ext_resource type="AudioStream" uid="uid://b77ktlgnbam24" path="res://Assets/Bosses/Sounds/boss_hit.mp3" id="16_o4x8l"]
+[ext_resource type="Texture2D" uid="uid://lg6gcu8qg3ne" path="res://Assets/Bosses/Charge.png" id="24_o4x8l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqwv1"]
 texture = ExtResource("1_hw5el")
@@ -605,6 +606,7 @@ sources/0 = SubResource("TileSetAtlasSource_jqwv1")
 sources/1 = SubResource("TileSetAtlasSource_vk556")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da68t"]
+size = Vector2(7.3611145, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p74ja"]
 texture = ExtResource("1_ik7pj")
@@ -1603,6 +1605,10 @@ region = Rect2(33, 37, 80, 9)
 [node name="Node2D" type="Node2D" unique_id=2074291646]
 script = ExtResource("1_da68t")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=403608178]
+anchor_mode = 0
+position_smoothing_enabled = true
+
 [node name="Background2" type="TileMapLayer" parent="." unique_id=1398826538]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -1622,6 +1628,7 @@ collision_mask = 5
 script = ExtResource("11_p74ja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=843529721]
+position = Vector2(0.5, 0)
 scale = Vector2(7.2, 7.2)
 shape = SubResource("RectangleShape2D_da68t")
 
@@ -1695,6 +1702,15 @@ position = Vector2(351, 420.00006)
 scale = Vector2(3.9200006, 3.9200006)
 collision_mask = 23
 
+[node name="ChargeIndicator" type="Node2D" parent="." unique_id=978492769]
+
+[node name="TextureRect" type="TextureRect" parent="ChargeIndicator" unique_id=2003837744]
+texture_filter = 1
+offset_right = 92.0
+offset_bottom = 94.0
+texture = ExtResource("24_o4x8l")
+stretch_mode = 1
+
 [node name="Boss" type="CharacterBody2D" parent="." unique_id=1014251643 groups=["Boss"]]
 position = Vector2(1552, 331.00003)
 scale = Vector2(4.0800033, 4.0800033)
@@ -1748,7 +1764,7 @@ position = Vector2(0, -7.479792e-06)
 stream = ExtResource("16_o4x8l")
 bus = &"Boss"
 
-[node name="ChargeIndicator" type="Line2D" parent="." unique_id=255587970]
+[node name="ChargeIndicator3" type="Line2D" parent="." unique_id=255587970]
 
 [node name="Wall1" type="StaticBody2D" parent="." unique_id=1359361141 groups=["Wall"]]
 position = Vector2(142, 383)
@@ -1888,9 +1904,17 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_vjp67")
 texture_progress = SubResource("AtlasTexture_xvcy7")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=403608178]
-anchor_mode = 0
-position_smoothing_enabled = true
+[node name="BossIntroUI" type="CanvasLayer" parent="." unique_id=1492763723]
+
+[node name="NamePlate" type="TextureRect" parent="BossIntroUI" unique_id=893339222]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BossNameLabel" type="Label" parent="BossIntroUI" unique_id=2106771821]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="IntroSFX" type="AudioStreamPlayer" parent="BossIntroUI" unique_id=1797076563]
 
 [connection signal="area_entered" from="Wall1/BossDetector" to="Wall1" method="_on_bullet_hit"]
 [connection signal="area_entered" from="Wall3/BossDetector" to="Wall3" method="_on_bullet_hit"]

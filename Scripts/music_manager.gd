@@ -10,7 +10,7 @@ var is_dying = false
 const MUSIC = {
 	"easy": [
 		preload("res://Assets/Music/Easy/musinova-acid-bonus-liquid-breakbeat-jungle-drum-and-bass-loopable-version-354205.mp3"),
-		preload("res://Assets/Music/Easy/musinova-enter-the-void-liquid-jungle-drum-and-bass-loopable-edit-356487.mp3"),
+		preload("res://Assets/Music/Easy/aka4aerk-aerk-core-11-one-254475.mp3"),
 	],
 	"medium": [
 		preload("res://Assets/Music/Medium/musinova-ultra-speed-liquid-jungle-breakbeat-drum-and-bass-loopable-edit-356522.mp3"),
@@ -21,7 +21,7 @@ const MUSIC = {
 		preload("res://Assets/Music/Hard/musinova-information-flow-liquid-jungle-breakbeat-drum-and-bass-loop-358433.mp3"),
 	],
 	"boss": [
-		preload("res://Assets/Music/Boss/aka4aerk-aerk-core-11-one-254475.mp3"),
+		preload("res://Assets/Music/Boss/keyframe_audio-dust-up-133891.mp3"),
 	],
 }
 

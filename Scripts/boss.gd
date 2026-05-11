@@ -16,6 +16,7 @@ const MAX_CHARGE_DISTANCE = 1200.0  # ADD THIS
 
 @onready var sprite = $AnimatedSprite2D
 @onready var charge_indicator = get_parent().get_node("ChargeIndicator")
+@onready var charge_texture = get_parent().get_node("ChargeIndicator/TextureRect")
 @onready var exit_door = get_parent().get_node("ExitDoor")
 @onready var hp_bar = get_parent().get_node("CanvasLayer/BossHPBar")
 @onready var hit_area = $HitArea
@@ -80,11 +81,16 @@ func start_charge_sequence():
 	charge_direction = (player.global_position - global_position).normalized()
 	sprite.flip_h = charge_direction.x < 0
 	
-	charge_indicator.global_position = Vector2.ZERO
-	charge_indicator.points = [
-		global_position,
-		global_position + charge_direction * 1000
-	]
+	# Position and rotate indicator
+	charge_indicator.global_position = global_position
+	charge_indicator.rotation = charge_direction.angle()
+	
+	# Set width to reach target without stretching
+	var distance = global_position.distance_to(global_position + charge_direction * 1000)
+	charge_texture.size.x = distance
+	charge_texture.position.x = 0
+	charge_texture.position.y = -charge_texture.size.y / 2  # Center vertically
+	
 	charge_indicator.visible = true
 	alert_sfx.play(0.5)
 	

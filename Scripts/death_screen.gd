@@ -221,15 +221,15 @@ func calculate_rating(score: int, time: float) -> String:
 	var score_points = score * 100
 	var time_penalty = time * 10
 	var total = score_points - time_penalty
-	if total >= 800:
+	if total >= 2000:
 		return "S"
-	elif total >= 600:
+	elif total >= 1500:
 		return "A+"
-	elif total >= 400:
+	elif total >= 900:
 		return "A"
-	elif total >= 250:
+	elif total >= 500:
 		return "B"
-	elif total >= 100:
+	elif total >= 200:
 		return "C"
 	else:
 		return "D"
