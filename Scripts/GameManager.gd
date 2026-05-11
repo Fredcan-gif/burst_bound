@@ -9,11 +9,14 @@ var easy_maps = [
 	"res://Scenes/level_easy_1.tscn",
 	"res://Scenes/level_easy_2.tscn",
 	"res://Scenes/level_easy_3.tscn",
+	"res://Scenes/level_easy_4.tscn",
+	"res://Scenes/level_easy_5.tscn",
 ]
 var medium_maps = [
 	"res://Scenes/level_medium_1.tscn",
 	"res://Scenes/level_medium_2.tscn",
 	"res://Scenes/level_medium_3.tscn",
+	"res://Scenes/level_medium_4.tscn",
 ]
 var hard_maps = [
 	"res://Scenes/level_hard_1.tscn",

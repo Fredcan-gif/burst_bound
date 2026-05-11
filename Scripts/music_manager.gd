@@ -83,7 +83,6 @@ func slow_down_and_stop():
 
 func reset():
 	is_dying = false
-	ramp_up_on_next = false
 	ramp_up_on_next = true
 	current_player.pitch_scale = 1.0
 	

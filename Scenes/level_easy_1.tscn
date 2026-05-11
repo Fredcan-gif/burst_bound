@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://dwkv1so3h2gc0"]
 
-[ext_resource type="Texture2D" uid="uid://1ls1mp3jrolo" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/2_Industrial_Tileset_1B_Background.png" id="1_tdk4b"]
 [ext_resource type="Texture2D" uid="uid://bh2wqugalqi2t" path="res://Assets/5. Industrial Tileset - Starter Pack 32p/3_Far_Background_Tile.png" id="2_v0vw8"]
 [ext_resource type="PackedScene" uid="uid://h0klk4hrx8v0" path="res://Scenes/LevelExit.tscn" id="3_dnhbm"]
+[ext_resource type="Texture2D" uid="uid://coqvpo7fwru1b" path="res://Assets/Overlay/3.png" id="3_l8m2x"]
 [ext_resource type="Texture2D" uid="uid://dwdmtp8w1t3d4" path="res://Assets/Foozle_2DT0001_Science_Fiction_Labs_Tileset/Tileset/level_tileset.png" id="3_owy3k"]
 [ext_resource type="PackedScene" uid="uid://dntrjq5r3g085" path="res://Scenes/player.tscn" id="4_owy3k"]
 [ext_resource type="PackedScene" uid="uid://dmgcm6wg1obm0" path="res://Scenes/buzzsaw.tscn" id="5_l8m2x"]
@@ -1384,15 +1384,6 @@ sources/3 = SubResource("TileSetAtlasSource_h2qxl")
 
 [node name="Node2D" type="Node2D" unique_id=355012731]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1894483793]
-layer = -1
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1184147465]
-z_index = -1
-position = Vector2(958, 533.99994)
-scale = Vector2(10.364583, 8.75)
-texture = ExtResource("1_tdk4b")
-
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=131546715]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -1408,8 +1399,14 @@ scale = Vector2(4.5, 4.5)
 texture = ExtResource("5_owy3k")
 
 [node name="LevelExit" parent="Exit" unique_id=51828111 instance=ExtResource("3_dnhbm")]
-position = Vector2(0, 40)
-scale = Vector2(5.5616302, 2.8066204)
+position = Vector2(30, 40)
+scale = Vector2(8.001631, 2.8066204)
+
+[node name="3" type="Sprite2D" parent="." unique_id=266833658]
+modulate = Color(1, 1, 1, 0.1254902)
+position = Vector2(962, 527)
+scale = Vector2(1.1688889, 1)
+texture = ExtResource("3_l8m2x")
 
 [node name="CharacterBody2D" parent="." unique_id=1312032871 instance=ExtResource("4_owy3k")]
 position = Vector2(222.99998, 753)
