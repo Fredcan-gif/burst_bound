@@ -29,6 +29,13 @@ const MEDAL_COLORS = {
 }
 
 func _ready():
+	# First-time players go straight to tutorial
+	if not GameManager.tutorial_completed:
+		GameManager.is_tutorial = true
+		MusicManager.reset_to_menu()
+		get_tree().change_scene_to_file("res://Scenes/tutorial_room_1.tscn")
+		return
+
 	GameManager.reset_run()
 	MusicManager.play_for_difficulty("menu")
 	description_label.text = ""

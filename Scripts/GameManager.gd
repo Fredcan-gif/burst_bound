@@ -31,6 +31,7 @@ var timer_running = false
 var game_started = false
 var player_dead = false
 var is_tutorial = false
+var tutorial_completed = false
 
 # Best run (kept for main menu display)
 var best_score = 0
@@ -47,6 +48,7 @@ func _ready():
 	load_best()
 	load_leaderboard()
 	load_settings_on_start()
+	load_progress()
 	
 func _start_music():
 	MusicManager.play_for_difficulty("easy")
@@ -234,3 +236,21 @@ func load_settings_on_start():
 		var sfx = config.get_value("audio", "sfx", 100.0)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(bgm / 100.0))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfx / 100.0))
+
+# ─── Progress (tutorial completion) ───────────────────────────────────────────
+
+func save_progress():
+	var config = ConfigFile.new()
+	config.set_value("progress", "tutorial_completed", tutorial_completed)
+	config.save("user://progress.cfg")
+
+func load_progress():
+	var config = ConfigFile.new()
+	if config.load("user://progress.cfg") == OK:
+		tutorial_completed = config.get_value("progress", "tutorial_completed", false)
+	else:
+		tutorial_completed = false
+
+func mark_tutorial_completed():
+	tutorial_completed = true
+	save_progress()

@@ -24,6 +24,7 @@ GameManager="*uid://cps1q8yn5ue0m"
 TransitionLayer="*uid://biip007tepypg"
 Dialogue="*uid://82a2kh7wx5i3"
 MusicManager="*uid://cychcf0hiedbs"
+PauseMenu="*res://Scenes/pause_menu.tscn"
 
 [display]
 

@@ -60,6 +60,7 @@ func start_collapse():
 	await Dialogue.dialogue_finished
 	
 	GameManager.is_tutorial = false
+	GameManager.mark_tutorial_completed()
 	TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
 
 func screen_shake():

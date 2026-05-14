@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://thmwd32ya3bx"]
+
+[ext_resource type="Script" uid="uid://ch7b512fm4md8" path="res://Scripts/pause_menu.gd" id="1_rwas2"]
+[ext_resource type="Texture2D" uid="uid://7ttftyjrq0k7" path="res://Assets/clipboard.png" id="2_rwas2"]
+[ext_resource type="FontFile" uid="uid://dqc3acnvawvud" path="res://Assets/ProgressPersonalUse-EaJdz.ttf" id="3_tseak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_amiou"]
+font = ExtResource("3_tseak")
+font_size = 25
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vb6s7"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=724867970]
+process_mode = 3
+layer = 3
+script = ExtResource("1_rwas2")
+
+[node name="BlackOverlay" type="ColorRect" parent="." unique_id=1738721513]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="ClipboardContainer" type="Control" parent="." unique_id=704794137]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ClipboardImage" type="TextureRect" parent="ClipboardContainer" unique_id=1650769886]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -491.0
+offset_top = -611.0
+offset_right = 483.3125
+offset_bottom = 573.625
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rwas2")
+
+[node name="TitleLabel" type="Label" parent="ClipboardContainer" unique_id=454094779]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.99994
+offset_top = -221.0
+offset_right = -42.99994
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_amiou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ClipboardContainer" unique_id=1151574334]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.99994
+offset_top = -137.0
+offset_right = -10.999939
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3600025, 2.3600025)
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_vb6s7")
+
+[node name="MainMenuButton" type="Button" parent="ClipboardContainer" unique_id=2132490009]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.99994
+offset_top = 158.00006
+offset_right = 25.356934
+offset_bottom = 202.04767
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6800025, 1.6800025)
+text = "Main Menu"
+
+[node name="ResumeButton" type="Button" parent="ClipboardContainer" unique_id=1099934409]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -29.0
+offset_right = 25.761597
+offset_bottom = 16.833252
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6800025, 1.6800025)
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="ClipboardContainer" unique_id=963995490]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 66.0
+offset_right = 25.356873
+offset_bottom = 110.04761
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6800025, 1.6800025)
+text = "Settings"
+
+[node name="QuitConfirmPopup" type="Panel" parent="." unique_id=641262025]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -20.0
+offset_right = 271.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="QuitConfirmPopup" unique_id=303423992]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -143.0
+offset_right = 615.0
+offset_bottom = 258.0
+color = Color(0.79607844, 0.79607844, 0.79607844, 1)
+
+[node name="Label" type="Label" parent="QuitConfirmPopup" unique_id=1680450628]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -146.0
+offset_right = 507.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure you want to quit?"
+label_settings = SubResource("LabelSettings_amiou")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ConfirmYes" type="Button" parent="QuitConfirmPopup" unique_id=1086743674]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = -8.0
+offset_right = 123.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.880005, 2.880005)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("3_tseak")
+text = "Yes"
+flat = true
+autowrap_trim_flags = 0
+
+[node name="ConfirmNo" type="Button" parent="QuitConfirmPopup" unique_id=172495422]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -8.0
+offset_right = -161.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.880005, 2.880005)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("3_tseak")
+text = "No"
+flat = true

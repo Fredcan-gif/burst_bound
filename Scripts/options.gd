@@ -52,6 +52,7 @@ func _on_confirm_reset():
 	DirAccess.remove_absolute("user://best_run.cfg")
 	DirAccess.remove_absolute("user://leaderboard.cfg")
 	DirAccess.remove_absolute("user://settings.cfg")
+	DirAccess.remove_absolute("user://progress.cfg")
 	
 	# Reset GameManager data
 	GameManager.best_score = 0
@@ -59,6 +60,7 @@ func _on_confirm_reset():
 	GameManager.best_rating = ""
 	GameManager.leaderboard.clear()
 	GameManager.latest_record_index = -1
+	GameManager.tutorial_completed = false
 	
 	# Reset sliders to default
 	bgm_slider.value = 100.0
@@ -98,7 +100,10 @@ func load_settings():
 	sfx_value_label.text = str(int(sfx_slider.value))
 
 func _on_back_button_pressed() -> void:
-	TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
+	if has_meta("is_popup") and get_meta("is_popup"):
+		queue_free()
+	else:
+		TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
 
 func _on_reset_pressed() -> void:
 	confirm_popup.visible = true
