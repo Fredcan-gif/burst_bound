@@ -32,6 +32,7 @@ var game_started = false
 var player_dead = false
 var is_tutorial = false
 var tutorial_completed = false
+var is_boss_intro = false
 
 # Best run (kept for main menu display)
 var best_score = 0

@@ -23,6 +23,7 @@ func _ready():
 	get_tree().paused = true
 
 	GameManager.is_tutorial = false
+	GameManager.is_boss_intro = true
 	MusicManager.play_boss_music(3.0)
 
 	# 2. Hide EVERYTHING for the cinematic
@@ -117,6 +118,7 @@ func play_boss_intro():
 	
 	# CHECK: Only unpause if the player is actually alive!
 	# Replace 'is_dead' with the actual variable name in your player script
+	GameManager.is_boss_intro = false
 	if player and player.get("is_dead") == false:
 		player.can_move = true
 		boss.set_physics_process(true)

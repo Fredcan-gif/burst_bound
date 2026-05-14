@@ -51,7 +51,7 @@ func _ready():
 	hide()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and GameManager.game_started and not GameManager.player_dead:
+	if event.is_action_pressed("ui_cancel") and GameManager.game_started and not GameManager.player_dead and not GameManager.is_boss_intro:
 		# Don't unpause if options popup or confirm popup is open
 		if get_node_or_null("Options") != null or quit_confirm_popup.visible:
 			return
