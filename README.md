@@ -43,3 +43,8 @@
 - Added more traps and SFX
 - Finalized player design
 - Added stage BGMs
+
+**5/14/2026 - Week 6 Progress:**
+- Added Options Menu
+- Improved boss scene
+- Updated main menu
