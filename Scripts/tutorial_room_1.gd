@@ -2,6 +2,7 @@ extends Node2D
 
 var player = null
 var goal_reached = false
+var skip_canvas: CanvasLayer
 
 func _ready():
 	GameManager.is_tutorial = true
@@ -17,6 +18,47 @@ func _ready():
 		{"name": "???", "text": "Complete all of them without fail, and we shall let you free."},
 		{"name": "???", "text": "Get to the exit of this room by moving left and right."},
 	])
+	
+	_create_skip_button()
+
+func _create_skip_button():
+	skip_canvas = CanvasLayer.new()
+	skip_canvas.layer = 50
+	add_child(skip_canvas)
+	
+	var skip_btn = Button.new()
+	skip_btn.text = "Skip Tutorial"
+	skip_btn.anchor_left = 1.0
+	skip_btn.anchor_right = 1.0
+	skip_btn.anchor_top = 0.0
+	skip_btn.anchor_bottom = 0.0
+	skip_btn.offset_left = -220
+	skip_btn.offset_right = -20
+	skip_btn.offset_top = 20
+	skip_btn.offset_bottom = 60
+	skip_btn.texture_filter = Control.TEXTURE_FILTER_NEAREST
+	
+	var font = load("res://Assets/Flexi_IBM_VGA_True.ttf")
+	if font:
+		skip_btn.add_theme_font_override("font", font)
+		skip_btn.add_theme_font_size_override("font_size", 25)
+	
+	skip_btn.pressed.connect(_on_skip_pressed)
+	skip_canvas.add_child(skip_btn)
+	skip_canvas.visible = false
+	
+	await get_tree().create_timer(2.0).timeout
+	if is_instance_valid(skip_canvas):
+		skip_canvas.visible = true
+
+func _on_skip_pressed():
+	if skip_canvas:
+		skip_canvas.queue_free()
+	if Dialogue.is_showing:
+		Dialogue.end_dialogue()
+	GameManager.is_tutorial = false
+	GameManager.mark_tutorial_completed()
+	TransitionLayer.play_full_transition("res://Scenes/main_menu.tscn")
 
 func _on_goal_reached(body):
 	if body.is_in_group("Player") and not goal_reached:
