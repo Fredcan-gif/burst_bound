@@ -10,8 +10,9 @@ func _ready():
 	player.can_dash = false
 	$TutorialExit.body_entered.connect(_on_goal_reached)
 	Dialogue.start_dialogue([
-		{"name": "???", "text": "Now try jumping. Press the jump button to get over the gaps and obstacles."},
-		{"name": "???", "text": "Don't worry you will be brought back to the start if you fail."},
+		{"name": "???", "text": "Let's move on to jumping."},
+		{"name": "???", "text": "There are various traps and gaps scattered around the area, jump over them to pass."},
+		{"name": "???", "text": "Don't worry we fool proofed these traps to avoid any future lawsuits, if you touch them then you will be brought back to the start."},
 	])
 
 func _on_goal_reached(body):
