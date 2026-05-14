@@ -67,6 +67,12 @@ func _pause_game():
 	
 	score_label.text = "Score: " + str(GameManager.score)
 	
+	# Set all alphas to 1 immediately
+	score_label.modulate.a = 1.0
+	menu_button.modulate.a = 1.0
+	resume_button.modulate.a = 1.0
+	settings_button.modulate.a = 1.0
+	
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUART)
@@ -80,15 +86,8 @@ func _pause_game():
 	tween.tween_property(resume_button, "position:y", orig_pos["resume_button"].y, duration)
 	tween.tween_property(settings_button, "position:y", orig_pos["settings_button"].y, duration)
 	tween.tween_property(black_overlay, "modulate:a", 1.0, duration)
-
+	
 	await tween.finished
-
-	var fade_tween = create_tween()
-	fade_tween.set_parallel(true)
-	fade_tween.tween_property(score_label, "modulate:a", 1.0, 0.3)
-	fade_tween.tween_property(menu_button, "modulate:a", 1.0, 0.3)
-	fade_tween.tween_property(resume_button, "modulate:a", 1.0, 0.3)
-	fade_tween.tween_property(settings_button, "modulate:a", 1.0, 0.3)
 
 func _resume_game():
 	get_tree().paused = false
