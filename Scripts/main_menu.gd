@@ -9,6 +9,7 @@ extends Node2D
 const DESCRIPTIONS = {
 	"start": "Survive and traverse through endless rooms and bosses. Each stage becomes increasingly difficult.",
 	"tutorial": "Get to know the controls of the experiment.",
+	"options": "Configure the game music and sound effects, you can also reset your data here.",
 	"exit": "Exit the experiment."
 }
 
@@ -29,12 +30,15 @@ const MEDAL_COLORS = {
 
 func _ready():
 	GameManager.reset_run()
+	MusicManager.play_for_difficulty("menu")
 	description_label.text = ""
 
 	$Menu/Button_manager/Start.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["start"])
 	$Menu/Button_manager/Start.mouse_exited.connect(func(): description_label.text = "")
 	$Menu/Button_manager/Tutorial.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["tutorial"])
 	$Menu/Button_manager/Tutorial.mouse_exited.connect(func(): description_label.text = "")
+	$Menu/Button_manager/Options.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["options"])
+	$Menu/Button_manager/Options.mouse_exited.connect(func(): description_label.text = "")
 	$Menu/Button_manager/Quit.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["exit"])
 	$Menu/Button_manager/Quit.mouse_exited.connect(func(): description_label.text = "")
 
@@ -133,4 +137,8 @@ func _on_start_pressed() -> void:
 	TransitionLayer.play_full_transition(first_map)
 
 func _on_tutorial_pressed() -> void:
+	MusicManager.reset_to_menu()
 	TransitionLayer.play_full_transition("res://Scenes/tutorial_room_1.tscn")
+	
+func _on_options_pressed() -> void:
+	TransitionLayer.play_full_transition("res://Scenes/options.tscn")

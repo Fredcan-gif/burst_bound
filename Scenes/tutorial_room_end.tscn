@@ -1001,7 +1001,7 @@ shape = SubResource("RectangleShape2D_07emm")
 
 [node name="CollapseSFX" type="AudioStreamPlayer2D" parent="." unique_id=1844867318]
 stream = ExtResource("8_qpajb")
-bus = &"Floor"
+bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1667316445]
 anchor_mode = 0

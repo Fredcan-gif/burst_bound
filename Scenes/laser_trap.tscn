@@ -240,4 +240,5 @@ frame_progress = 0.12995805
 
 [node name="ActivateSFX" type="AudioStreamPlayer2D" parent="." unique_id=1208460577]
 stream = ExtResource("5_6sd6k")
-bus = &"Laser"
+volume_db = -23.0
+bus = &"SFX"

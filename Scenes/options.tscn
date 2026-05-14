@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://dt0oa7qkt1mr1"]
+
+[ext_resource type="Script" uid="uid://dhsacivs1fnea" path="res://Scripts/options.gd" id="1_prnvy"]
+[ext_resource type="Texture2D" uid="uid://byqqeqvyiiko5" path="res://Assets/options_bg.png" id="2_4tmxy"]
+[ext_resource type="FontFile" uid="uid://gipetbd0ehmg" path="res://Assets/Flexi_IBM_VGA_True.ttf" id="3_qyyw6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tmxy"]
+font = ExtResource("3_qyyw6")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ww8vx"]
+font = ExtResource("3_qyyw6")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyyw6"]
+font = ExtResource("3_qyyw6")
+font_size = 40
+
+[node name="Options" type="Node2D" unique_id=1506890208]
+script = ExtResource("1_prnvy")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=181431772]
+
+[node name="TextureRect2" type="ColorRect" parent="Background" unique_id=423595351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003921569, 0.007843138, 0.6745098, 1)
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=483884411]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4tmxy")
+expand_mode = 1
+
+[node name="TitleLabel" type="Label" parent="Background" unique_id=445511904]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -880.0
+offset_right = -17.0
+offset_bottom = -838.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.28, 2.28)
+size_flags_horizontal = 4
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_4tmxy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Background" unique_id=560201797]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -329.5
+offset_right = -412.0
+offset_bottom = -261.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qyyw6")
+theme_override_font_sizes/font_size = 60
+text = "Back"
+flat = true
+
+[node name="ResetButton" type="Button" parent="Background" unique_id=1633592086]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -267.0
+offset_right = 99.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qyyw6")
+theme_override_font_sizes/font_size = 45
+text = "Reset Data"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1571731778]
+texture_filter = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.00006
+offset_top = -169.0
+offset_right = 10.999939
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.879995, 2.879995)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Music Volume" type="Label" parent="Background/VBoxContainer" unique_id=2135152005]
+texture_filter = 2
+layout_mode = 2
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_ww8vx")
+
+[node name="BGMRow" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=537642766]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGMSlider" type="HSlider" parent="Background/VBoxContainer/BGMRow" unique_id=158452543]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BGMValueLabel" type="Label" parent="Background/VBoxContainer/BGMRow" unique_id=1389447002]
+texture_filter = 2
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ww8vx")
+
+[node name="SFX Volume" type="Label" parent="Background/VBoxContainer" unique_id=1741833672]
+texture_filter = 2
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_ww8vx")
+
+[node name="SFXRow" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=600350522]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXSlider" type="HSlider" parent="Background/VBoxContainer/SFXRow" unique_id=1218091369]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXValueLabel" type="Label" parent="Background/VBoxContainer/SFXRow" unique_id=71178518]
+texture_filter = 2
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ww8vx")
+
+[node name="ConfirmPopup" type="Panel" parent="Background" unique_id=1296384364]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -20.0
+offset_right = 271.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background/ConfirmPopup" unique_id=901327597]
+layout_mode = 0
+offset_left = -286.0
+offset_top = -323.0
+offset_right = 852.0
+offset_bottom = 367.0
+color = Color(0.003921569, 0.007843138, 0.6745098, 1)
+
+[node name="Label" type="Label" parent="Background/ConfirmPopup" unique_id=150871944]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -146.0
+offset_right = 507.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure? This will delete all saved data such as past run records, music and SFX configuration."
+label_settings = SubResource("LabelSettings_qyyw6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ConfirmYes" type="Button" parent="Background/ConfirmPopup" unique_id=364875983]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.0
+offset_top = -15.5
+offset_right = 115.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.880005, 2.880005)
+theme_override_fonts/font = ExtResource("3_qyyw6")
+theme_override_font_sizes/font_size = 25
+text = "Yes"
+flat = true
+
+[node name="ConfirmNo" type="Button" parent="Background/ConfirmPopup" unique_id=644276547]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -15.5
+offset_right = -127.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.880005, 2.880005)
+theme_override_fonts/font = ExtResource("3_qyyw6")
+theme_override_font_sizes/font_size = 25
+text = "No"
+flat = true
+
+[connection signal="pressed" from="Background/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Background/ResetButton" to="." method="_on_reset_pressed"]

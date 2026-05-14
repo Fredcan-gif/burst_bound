@@ -181,8 +181,8 @@ texture = ExtResource("3_mh0y2")
 [node name="TransitionFX" type="AudioStreamPlayer" parent="." unique_id=933905902]
 stream = ExtResource("4_mh0y2")
 volume_db = -4.755
-bus = &"Transition"
+bus = &"SFX"
 
 [node name="AlarmFX" type="AudioStreamPlayer2D" parent="." unique_id=1308288288]
 stream = ExtResource("5_5f4v5")
-bus = &"Alarm"
+bus = &"SFX"

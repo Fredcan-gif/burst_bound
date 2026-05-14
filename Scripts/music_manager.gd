@@ -8,6 +8,9 @@ var other_player: AudioStreamPlayer = null
 var is_dying = false
 
 const MUSIC = {
+	"menu": [
+		preload("res://Assets/bransboynd-industrial-work-389650.mp3")
+	],
 	"easy": [
 		preload("res://Assets/Music/Easy/musinova-acid-bonus-liquid-breakbeat-jungle-drum-and-bass-loopable-version-354205.mp3"),
 		preload("res://Assets/Music/Easy/aka4aerk-aerk-core-11-one-254475.mp3"),
@@ -38,24 +41,35 @@ func _ready():
 func play_for_difficulty(difficulty: String):
 	if is_dying:
 		return
+	if difficulty == current_difficulty and current_player.playing:
+		return
 	current_difficulty = difficulty
 	remaining_tracks = MUSIC[difficulty].duplicate()
 	remaining_tracks.shuffle()
-	play_next_track()
-
-func play_next_track():
+	play_next_track(0.0)
+	
+func play_next_track(start_from: float = 0.0):
 	if remaining_tracks.is_empty():
 		remaining_tracks = MUSIC[current_difficulty].duplicate()
 		remaining_tracks.shuffle()
 	var track = remaining_tracks.pop_back()
 	current_player.stream = track
-	current_player.pitch_scale = 1.0  # Always start at 1.0
-	current_player.play()
+	current_player.pitch_scale = 1.0
+	current_player.play(start_from)
 	
 	if ramp_up_on_next:
 		ramp_up_on_next = false
-		current_player.pitch_scale = 0.3  # Set low AFTER play()
+		current_player.pitch_scale = 0.3
 		ramp_up_pitch()
+		
+func play_boss_music(start_from: float = 0.0):
+	is_dying = false
+	current_difficulty = "boss"
+	remaining_tracks = MUSIC["boss"].duplicate()
+	var track = remaining_tracks.pop_back()
+	current_player.stream = track
+	current_player.pitch_scale = 1.0
+	current_player.play(start_from)
 
 func ramp_up_pitch():
 	var tween = create_tween()
@@ -64,7 +78,7 @@ func ramp_up_pitch():
 	tween.tween_property(current_player, "pitch_scale", 1.0, 1.5)
 
 func _on_track_finished():
-	play_next_track()
+	play_next_track(0.0)
 
 func on_player_die():
 	if is_dying:

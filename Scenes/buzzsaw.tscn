@@ -151,6 +151,6 @@ frame_progress = 0.42384914
 
 [node name="SawFX" type="AudioStreamPlayer2D" parent="." unique_id=399701073]
 stream = ExtResource("3_khdda")
-volume_db = -10.791
+volume_db = -20.0
 autoplay = true
-bus = &"Saw"
+bus = &"SFX"

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cj02ods6elvia" path="res://Scripts/main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://dpoilp1vd5oih" path="res://Assets/title_screen.png" id="2_48xlc"]
-[ext_resource type="AudioStream" uid="uid://dit6p3ojfvj76" path="res://Assets/bransboynd-industrial-work-389650.mp3" id="3_1ehe0"]
 [ext_resource type="FontFile" uid="uid://qv0a7t6wkige" path="res://Assets/SFDigitalReadout-Heavy.ttf" id="3_ce3w2"]
+[ext_resource type="FontFile" uid="uid://gipetbd0ehmg" path="res://Assets/Flexi_IBM_VGA_True.ttf" id="4_ce3w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font = ExtResource("3_ce3w2")
@@ -12,14 +12,15 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.4627451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ehe0"]
-font_size = 32
+font = ExtResource("4_ce3w2")
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_48xlc"]
-font_size = 40
+font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
-font = ExtResource("3_ce3w2")
-font_size = 40
+font = ExtResource("4_ce3w2")
+font_size = 30
 
 [node name="Main Menu" type="Node2D" unique_id=1483382934]
 script = ExtResource("1_7vrkn")
@@ -53,7 +54,7 @@ offset_right = 1930.0
 offset_bottom = 1113.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.043137256, 0, 0.99607843, 1)
+color = Color(0.003921569, 0.007843138, 0.6745098, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Menu/Button_manager" unique_id=1693177702]
 layout_mode = 1
@@ -100,14 +101,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 847.0
-offset_top = 668.0
+offset_top = 624.0
 offset_right = 1017.0
-offset_bottom = 759.0
+offset_bottom = 715.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 50
 text = "Tutorial
 "
 flat = true
@@ -121,15 +124,40 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 876.5
-offset_top = 583.0
+offset_top = 539.0
 offset_right = 987.5
-offset_bottom = 674.0
+offset_bottom = 630.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 50
 text = "Start"
+flat = true
+
+[node name="Options" type="Button" parent="Menu/Button_manager" unique_id=1695001930]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 860.0
+offset_top = 719.0
+offset_right = 1004.0
+offset_bottom = 810.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 50
+text = "Settings
+"
 flat = true
 
 [node name="Quit" type="Button" parent="Menu/Button_manager" unique_id=1142000679]
@@ -141,14 +169,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 889.5
-offset_top = 765.0
+offset_top = 808.0
 offset_right = 974.5
-offset_bottom = 856.0
+offset_bottom = 899.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("4_ce3w2")
+theme_override_font_sizes/font_size = 50
 text = "Exit"
 flat = true
 
@@ -172,10 +202,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1257.0
-offset_top = 123.0
-offset_right = 1740.0
-offset_bottom = 320.0
+offset_left = 1263.0
+offset_top = 82.0
+offset_right = 1746.0
+offset_bottom = 361.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -184,11 +214,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="BestRunContainer/RatingRow" unique_id=1929028731]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 text = "Best Rating: "
 label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="BestRatingLabel" type="Label" parent="BestRunContainer/RatingRow" unique_id=1514701763]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="ScoreRow" type="HBoxContainer" parent="BestRunContainer" unique_id=647585420]
@@ -196,24 +228,33 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="BestRunContainer/ScoreRow" unique_id=1121759742]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 text = "Best Score:"
 label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="BestScoreLabel" type="Label" parent="BestRunContainer/ScoreRow" unique_id=2031708017]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 label_settings = SubResource("LabelSettings_48xlc")
 
-[node name="TimeRow" type="HBoxContainer" parent="BestRunContainer" unique_id=180911595]
+[node name="TimeRow" type="VBoxContainer" parent="BestRunContainer" unique_id=1068706020]
 layout_mode = 2
+
+[node name="blank" type="Label" parent="BestRunContainer/TimeRow" unique_id=571692323]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
+label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="Label" type="Label" parent="BestRunContainer/TimeRow" unique_id=2113094627]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 text = "Best Timer: "
 label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="BestTimeLabel" type="Label" parent="BestRunContainer/TimeRow" unique_id=1552051818]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ce3w2")
 label_settings = SubResource("LabelSettings_48xlc")
 
 [node name="LeaderboardContainer" type="VBoxContainer" parent="." unique_id=53335769]
@@ -224,9 +265,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 245.00005
-offset_top = 110.0
+offset_top = 99.00001
 offset_right = 416.18665
-offset_bottom = 400.25394
+offset_bottom = 389.25394
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
@@ -242,12 +283,7 @@ horizontal_alignment = 1
 clip_contents = true
 layout_mode = 2
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1426239650]
-stream = ExtResource("3_1ehe0")
-autoplay = true
-panning_strength = 0.0
-bus = &"BGM"
-
 [connection signal="pressed" from="Menu/Button_manager/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Menu/Button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/Button_manager/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/Button_manager/Quit" to="." method="_on_quit_pressed"]

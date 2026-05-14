@@ -12,11 +12,12 @@ func _process(_delta):
 	var scene_path = current_scene.scene_file_path
 	var is_main_menu = scene_path == "res://Scenes/main_menu.tscn"
 	var is_tutorial = "tutorial" in scene_path.to_lower()
-	var should_show = not is_main_menu and not is_tutorial and not GameManager.player_dead
-	
+	var is_options = scene_path == "res://Scenes/options.tscn"  # ADD THIS
+	var should_show = not is_main_menu and not is_tutorial and not is_options and not GameManager.player_dead
+
 	$HUDContainer/Label.visible = should_show
 	$HUDContainer/TimerLabel.visible = should_show
-	$HUDContainer/HUDBG.visible = should_show
+	$HUDContainer/HUDBG.visible = should_show  # if you have a background texture
 	
 	if should_show:
 		$HUDContainer/Label.text = "Score: " + str(GameManager.score)

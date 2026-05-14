@@ -176,9 +176,8 @@ func die():
 	GameManager.stop_level_timer()
 	MusicManager.on_player_die()
 	
-	# Disable collision but keep sprite in place
 	collision.set_deferred("disabled", true)
-	set_physics_process(false)  # Stop all physics so player stays frozen in place
+	set_physics_process(false)
 	
 	if not sprite.animation_finished.is_connected(_on_death_animation_finished):
 		sprite.animation_finished.connect(_on_death_animation_finished)
@@ -188,5 +187,6 @@ func _on_death_animation_finished():
 		await get_tree().create_timer(0.5).timeout
 		get_tree().paused = true
 		var death_screen = load("res://Scenes/death_screen.tscn").instantiate()
+		death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().root.add_child(death_screen)
 		death_screen.show_results(GameManager.score, GameManager.level_time)

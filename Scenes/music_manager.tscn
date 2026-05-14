@@ -8,8 +8,8 @@ script = ExtResource("1_760hw")
 
 [node name="AudioStreamPlayerA" type="AudioStreamPlayer" parent="." unique_id=893890319]
 process_mode = 3
-bus = &"Stage Music"
+bus = &"BGM"
 
 [node name="AudioStreamPlayerB" type="AudioStreamPlayer" parent="." unique_id=732677072]
 process_mode = 3
-bus = &"Stage Music"
+bus = &"SFX"

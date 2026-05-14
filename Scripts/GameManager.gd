@@ -46,6 +46,7 @@ func _ready():
 	refill_map_pool()
 	load_best()
 	load_leaderboard()
+	load_settings_on_start()
 	
 func _start_music():
 	MusicManager.play_for_difficulty("easy")
@@ -225,3 +226,11 @@ func reset_run():
 	stages_completed = 0
 	current_difficulty = "easy"
 	refill_map_pool()
+	
+func load_settings_on_start():
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		var bgm = config.get_value("audio", "bgm", 100.0)
+		var sfx = config.get_value("audio", "sfx", 100.0)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BGM"), linear_to_db(bgm / 100.0))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfx / 100.0))
