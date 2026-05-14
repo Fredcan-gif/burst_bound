@@ -5,6 +5,7 @@ var goal_reached = false
 
 func _ready():
 	GameManager.is_tutorial = true
+	MusicManager.play_for_difficulty("tutorial")
 	player = get_tree().get_first_node_in_group("Player")
 	player.can_jump = true
 	player.can_dash = false

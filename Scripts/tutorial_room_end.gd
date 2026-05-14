@@ -10,6 +10,7 @@ var collapse_triggered = false
 
 func _ready():
 	GameManager.is_tutorial = true
+	MusicManager.play_for_difficulty("tutorial")
 	player = get_tree().get_first_node_in_group("Player")
 	player.can_jump = true
 	player.can_dash = false
@@ -25,6 +26,7 @@ func _ready():
 func _on_collapse_triggered(body):
 	if body.is_in_group("Player") and not collapse_triggered:
 		collapse_triggered = true
+		
 		start_collapse()
 
 func start_collapse():
@@ -40,6 +42,7 @@ func start_collapse():
 	collapse_platform.position.x = 0
 	
 	# Play sound and drop platform at the same time
+	MusicManager.current_player.stop()
 	collapse_sfx.play()
 	screen_shake()
 	

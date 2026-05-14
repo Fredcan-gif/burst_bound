@@ -53,7 +53,11 @@ func _ready():
 	
 func _start_music():
 	MusicManager.play_for_difficulty("easy")
-
+	
+func start_tutorial_music():
+	is_tutorial = true
+	MusicManager.play_for_difficulty("tutorial")
+	
 func _process(delta):
 	if timer_running:
 		level_time += delta

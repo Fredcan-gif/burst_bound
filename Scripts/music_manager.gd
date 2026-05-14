@@ -11,6 +11,9 @@ const MUSIC = {
 	"menu": [
 		preload("res://Assets/bransboynd-industrial-work-389650.mp3")
 	],
+	"tutorial": [
+		preload("res://Assets/Music/Tutorial/aka4aerk-aerk-conductor-276167.mp3") 
+	],
 	"easy": [
 		preload("res://Assets/Music/Easy/musinova-acid-bonus-liquid-breakbeat-jungle-drum-and-bass-loopable-version-354205.mp3"),
 		preload("res://Assets/Music/Easy/aka4aerk-aerk-core-11-one-254475.mp3"),

@@ -6,6 +6,7 @@ var skip_canvas: CanvasLayer
 
 func _ready():
 	GameManager.is_tutorial = true
+	MusicManager.play_for_difficulty("tutorial")
 	player = get_tree().get_first_node_in_group("Player")
 	player.can_jump = false
 	player.can_dash = false
