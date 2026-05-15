@@ -17,32 +17,26 @@ var _active_actions: Array[String] = []
 
 
 func _ready() -> void:
-	# Must be Stop so this Control catches touch events
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_filter = Control.MOUSE_FILTER_IGNORE  # Don't block any UI clicks
 	_base_origin = base.global_position + base.size / 2.0
 	knob.global_position = _base_origin - knob.size / 2.0
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		print("Touch at: ", event.position, " inside: ", _is_inside(event.position), " base_origin: ", _base_origin)
 		if event.pressed:
-			# Only claim the event if touch is inside our zone
 			if _touch_index == -1 and _is_inside(event.position):
 				_touch_index = event.index
 				if follow_finger:
 					_base_origin = event.position
 					base.global_position = _base_origin - base.size / 2.0
 				_update(event.position)
-				accept_event()  # Only consumed if it's ours
 		elif event.index == _touch_index:
 			_reset()
-			# Do NOT accept_event here — let release propagate normally
 
 	elif event is InputEventScreenDrag:
 		if event.index == _touch_index:
 			_update(event.position)
-			accept_event()  # Only drags that belong to us
 
 
 func _update(touch_pos: Vector2) -> void:
