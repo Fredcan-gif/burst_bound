@@ -74,7 +74,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -540.0
 offset_top = -200.0
-offset_right = 540.0
 offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -98,5 +97,33 @@ audio.com
 freesound.org
 clideo.com
 [/center]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Background" unique_id=1853815159]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -200.0
+offset_right = 555.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_qyyw6")
+theme_override_fonts/bold_font = ExtResource("3_qyyw6")
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center]
+[b]Developers[/b]
+
+Sean Fredrik Cañon – Lead Programmer / Godot Specialist, 
+
+Jheremy Gabriel Lobitaña – Game Designer / Level Designer
+
+Ren Moromasa – Audio & UI Tester, Artist/ Assets & Animator
+
+"
 
 [connection signal="pressed" from="Background/BackButton" to="." method="_on_back_button_pressed"]
