@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://crbbr67jm2rad"]
+
+[ext_resource type="Script" uid="uid://cekiruhln7xqk" path="res://Scripts/credits.gd" id="1_cscript"]
+[ext_resource type="Texture2D" uid="uid://byqqeqvyiiko5" path="res://Assets/options_bg.png" id="2_4tmxy"]
+[ext_resource type="FontFile" uid="uid://gipetbd0ehmg" path="res://Assets/Flexi_IBM_VGA_True.ttf" id="3_qyyw6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_qyyw6")
+font_size = 40
+
+[node name="Credits" type="Node2D" unique_id=630834507]
+script = ExtResource("1_cscript")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1950245442]
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1966592019]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003921569, 0.007843138, 0.6745098, 1)
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=1169933922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4tmxy")
+expand_mode = 1
+
+[node name="TitleLabel" type="Label" parent="Background" unique_id=956780578]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -851.0
+offset_right = -10.0
+offset_bottom = -809.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.28, 2.28)
+size_flags_horizontal = 4
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Background" unique_id=718940248]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -329.5
+offset_right = -412.0
+offset_bottom = -261.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qyyw6")
+theme_override_font_sizes/font_size = 60
+text = "Back"
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background" unique_id=1680114754]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -200.0
+offset_right = 540.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_qyyw6")
+theme_override_fonts/bold_font = ExtResource("3_qyyw6")
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[center]
+[b]Sprites[/b]
+itch.io
+
+[b]Fonts[/b]
+fontspace.com
+dafont.com
+1001fonts.com
+
+[b]Music/SFX[/b]
+pixabay.com
+audio.com
+freesound.org
+clideo.com
+[/center]"
+
+[connection signal="pressed" from="Background/BackButton" to="." method="_on_back_button_pressed"]

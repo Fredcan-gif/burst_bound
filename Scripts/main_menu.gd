@@ -10,6 +10,7 @@ const DESCRIPTIONS = {
 	"start": "Survive and traverse through endless rooms and bosses. Each stage becomes increasingly difficult.",
 	"tutorial": "Get to know the controls of the experiment.",
 	"options": "Configure the game music and sound effects, you can also reset your data here.",
+	"credits": "View the resources used to create this experiment.",
 	"exit": "Exit the experiment."
 }
 
@@ -46,6 +47,8 @@ func _ready():
 	$Menu/Button_manager/Tutorial.mouse_exited.connect(func(): description_label.text = "")
 	$Menu/Button_manager/Options.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["options"])
 	$Menu/Button_manager/Options.mouse_exited.connect(func(): description_label.text = "")
+	$Menu/Button_manager/Credits.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["credits"])
+	$Menu/Button_manager/Credits.mouse_exited.connect(func(): description_label.text = "")
 	$Menu/Button_manager/Quit.mouse_entered.connect(func(): description_label.text = DESCRIPTIONS["exit"])
 	$Menu/Button_manager/Quit.mouse_exited.connect(func(): description_label.text = "")
 
@@ -149,3 +152,6 @@ func _on_tutorial_pressed() -> void:
 	
 func _on_options_pressed() -> void:
 	TransitionLayer.play_full_transition("res://Scenes/options.tscn")
+
+func _on_credits_pressed() -> void:
+	TransitionLayer.play_full_transition("res://Scenes/credits.tscn")
