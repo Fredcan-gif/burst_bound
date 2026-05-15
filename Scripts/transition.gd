@@ -13,7 +13,8 @@ func _process(_delta):
 	var is_main_menu = scene_path == "res://Scenes/main_menu.tscn"
 	var is_tutorial = "tutorial" in scene_path.to_lower()
 	var is_options = scene_path == "res://Scenes/options.tscn"  # ADD THIS
-	var should_show = not is_main_menu and not is_tutorial and not is_options and not GameManager.player_dead and not get_tree().paused
+	var is_credits = scene_path == "res://Scenes/credits.tscn"
+	var should_show = not is_main_menu and not is_tutorial and not is_options and not is_credits and not GameManager.player_dead and not get_tree().paused
 
 	$HUDContainer/Label.visible = should_show
 	$HUDContainer/TimerLabel.visible = should_show
