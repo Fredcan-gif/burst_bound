@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4pvc8cnsqjr5"
-path="res://.godot/imported/direction_right.svg-6b721390a550f8963d85e29532e8b50e.ctex"
+uid="uid://d0w0b38hmsa22"
+path="res://.godot/imported/joystick_circle_pad_a.svg-cfc9408f7091136e1d9df410ebff68df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mobile controls/direction_right.svg"
-dest_files=["res://.godot/imported/direction_right.svg-6b721390a550f8963d85e29532e8b50e.ctex"]
+source_file="res://Assets/mobile controls/joystick_circle_pad_a.svg"
+dest_files=["res://.godot/imported/joystick_circle_pad_a.svg-cfc9408f7091136e1d9df410ebff68df.ctex"]
 
 [params]
 

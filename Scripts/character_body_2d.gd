@@ -20,6 +20,7 @@ var can_dash = true
 
 @onready var sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
+@onready var joystick = $CanvasLayer/Control/JumpButton
 
 @onready var jump_fx = $JumpFX
 @onready var dash_fx = $DashFX
@@ -45,6 +46,7 @@ func _draw():
 			draw_rect(Rect2(pip_pos, pip_size), Color(0.3, 0.3, 0.3, 0.8))
 
 func _physics_process(delta):
+	
 	if Dialogue.is_showing or Dialogue.just_closed:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -79,16 +81,17 @@ func _physics_process(delta):
 		start_dash()
 
 	# 4. Standard Horizontal Movement
-	var direction = Input.get_axis("move_left", "move_right")
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if not is_dashing:
-		if direction:
-			velocity.x = direction * SPEED
-			sprite.flip_h = direction < 0
+		if direction != Vector2.ZERO:
+			velocity.x = direction.x * SPEED
+			velocity.y += direction.y * SPEED * delta  # or however you want vertical to feel
+			sprite.flip_h = direction.x < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	update_animations(direction)
+	update_animations(direction.x)
 	queue_redraw()
 
 func start_dash():

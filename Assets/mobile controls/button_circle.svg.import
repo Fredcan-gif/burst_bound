@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drbwcbeg4rib5"
-path="res://.godot/imported/direction_left.svg-feec1efec15b9239548284cad909d01e.ctex"
+uid="uid://cb1ajbi1o0il"
+path="res://.godot/imported/button_circle.svg-fdf24cf55bd4fc9f79ed26bdd45b590a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mobile controls/direction_left.svg"
-dest_files=["res://.godot/imported/direction_left.svg-feec1efec15b9239548284cad909d01e.ctex"]
+source_file="res://Assets/mobile controls/button_circle.svg"
+dest_files=["res://.godot/imported/button_circle.svg-fdf24cf55bd4fc9f79ed26bdd45b590a.ctex"]
 
 [params]
 
