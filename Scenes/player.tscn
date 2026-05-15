@@ -29,10 +29,13 @@
 [ext_resource type="Texture2D" uid="uid://07bv2d3m7ihx" path="res://Assets/Effects/player_trail/W401-10.png" id="27_7ldla"]
 [ext_resource type="Texture2D" uid="uid://cswxui8stum1c" path="res://Assets/Effects/player_trail/W401-11.png" id="28_r7t2e"]
 [ext_resource type="Texture2D" uid="uid://dsl7gylb8bnlj" path="res://Assets/Effects/player_trail/W401-12.png" id="29_nmr2m"]
-[ext_resource type="Texture2D" uid="uid://cj52qr5ou02k6" path="res://Assets/mobile-controls-1/Vector/Style B/direction_left.svg" id="30_36dho"]
-[ext_resource type="Texture2D" uid="uid://uqt1rpbk8gur" path="res://Assets/mobile-controls-1/Vector/Style B/direction_right.svg" id="31_yh6i2"]
-[ext_resource type="Texture2D" uid="uid://fwmp8jaeyemc" path="res://Assets/mobile-controls-1/Vector/Icons/icon_jump.svg" id="32_36dho"]
-[ext_resource type="Texture2D" uid="uid://vhxag6vv7hmd" path="res://Assets/mobile-controls-1/Vector/Icons/icon_arrow.svg" id="33_36dho"]
+[ext_resource type="Texture2D" uid="uid://d0w0b38hmsa22" path="res://Assets/mobile controls/joystick_circle_pad_a.svg" id="30_nv4vc"]
+[ext_resource type="Script" uid="uid://b7q8clxrb8sc1" path="res://Scenes/joystick.gd" id="30_yh6i2"]
+[ext_resource type="Script" uid="uid://dwmcdvrndlgrd" path="res://Scenes/pause_button.gd" id="30_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://cb1ajbi1o0il" path="res://Assets/mobile controls/button_circle.svg" id="32_8gxox"]
+[ext_resource type="Texture2D" uid="uid://bvvsipwvqwtvx" path="res://Assets/mobile controls/icon_jump.svg" id="32_11gg7"]
+[ext_resource type="Texture2D" uid="uid://d0j6d5jkiowo2" path="res://Assets/mobile controls/icon_arrow.svg" id="33_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://bbcnq2h370khv" path="res://Assets/mobile controls/icon_pause.svg" id="34_sbwqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(17.5, 26)
@@ -698,34 +701,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Joystick" type="Control" parent="CanvasLayer/Control" unique_id=562664206]
+anchors_preset = 0
+offset_top = -6.1035156e-05
+offset_right = 40.0
+offset_bottom = 39.99994
+script = ExtResource("30_yh6i2")
+
+[node name="Base" type="TextureRect" parent="CanvasLayer/Control/Joystick" unique_id=1056040621]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 621.00006
+offset_right = 554.0
+offset_bottom = 1036.0
 mouse_filter = 2
+texture = ExtResource("30_nv4vc")
 
-[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=788526540]
-editor_description = "◄"
-position = Vector2(80, 800)
-scale = Vector2(3.28125, 3.0312507)
-texture_normal = ExtResource("30_36dho")
-action = "move_left"
-
-[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1327786991]
-editor_description = "►"
-position = Vector2(350, 800)
-scale = Vector2(3.25, 3.03125)
-texture_normal = ExtResource("31_yh6i2")
-action = "move_right"
+[node name="Knob" type="TextureRect" parent="CanvasLayer/Control/Joystick" unique_id=878017734]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 759.00006
+offset_right = 381.0
+offset_bottom = 892.00006
+mouse_filter = 2
+texture = ExtResource("32_8gxox")
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1603603188]
 editor_description = "▲"
 position = Vector2(1393, 800)
 scale = Vector2(4.062502, 3.770834)
-texture_normal = ExtResource("32_36dho")
+texture_normal = ExtResource("32_11gg7")
+texture_pressed = ExtResource("32_11gg7")
 action = "move_jump"
 
 [node name="DashButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1377267245]
 editor_description = "DASH"
 position = Vector2(1667, 800)
 scale = Vector2(3.6458333, 3.2291667)
-texture_normal = ExtResource("33_36dho")
+texture_normal = ExtResource("33_qpa8y")
+texture_pressed = ExtResource("33_qpa8y")
 action = "move_dash"
+
+[node name="PauseButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=237714871]
+position = Vector2(1701.0001, 65)
+scale = Vector2(2.9583333, 2.6666667)
+texture_normal = ExtResource("34_sbwqj")
+texture_pressed = ExtResource("34_sbwqj")
+script = ExtResource("30_ypfnu")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
