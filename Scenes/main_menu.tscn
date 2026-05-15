@@ -20,7 +20,7 @@ font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
 font = ExtResource("4_ce3w2")
-font_size = 30
+font_size = 25
 
 [node name="Main Menu" type="Node2D" unique_id=1483382934]
 script = ExtResource("1_7vrkn")
@@ -288,9 +288,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 243.0
-offset_top = 125.0
+offset_top = 107.0
 offset_right = 414.18658
-offset_bottom = 415.25394
+offset_bottom = 397.25394
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.3600025, 2.3600025)
