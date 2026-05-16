@@ -30,13 +30,11 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			# Start if we touch anywhere inside the Control's bounds 
-			# or a specific detection radius
+			
 			if _touch_index == -1 and _is_inside(event.position):
 				_touch_index = event.index
 				
 				if follow_finger:
-					# Warp the base to where the finger touched
 					_base_origin = event.position
 					base.global_position = _base_origin - (base.size / 2.0)
 				
@@ -65,20 +63,19 @@ func _update(touch_pos: Vector2) -> void:
 
 
 func _sync_actions() -> void:
-	# Release previous frame's actions
 	for action in _active_actions:
 		Input.action_release(action)
 	_active_actions.clear()
-
-	# Horizontal
+	
+	# Horizontal movement only for walking
 	if _direction.x < -0.1:
 		Input.action_press("move_left", abs(_direction.x))
 		_active_actions.append("move_left")
 	elif _direction.x > 0.1:
 		Input.action_press("move_right", abs(_direction.x))
 		_active_actions.append("move_right")
-
-	# Vertical
+	
+	# Vertical only registered for dash direction, not movement
 	if _direction.y < -0.1:
 		Input.action_press("move_up", abs(_direction.y))
 		_active_actions.append("move_up")
@@ -91,11 +88,9 @@ func _reset() -> void:
 	_touch_index = -1
 	_direction = Vector2.ZERO
 	
-	# SNAP BACK TO HOME
 	_base_origin = _home_base_pos
 	_reset_ui()
 	
-	# Clean up input
 	for action in _active_actions:
 		Input.action_release(action)
 	_active_actions.clear()
@@ -103,14 +98,11 @@ func _reset() -> void:
 
 
 func _reset_ui() -> void:
-	# Move the visual base and knob back to the home origin
 	base.global_position = _base_origin - (base.size / 2.0)
 	knob.global_position = _base_origin - (knob.size / 2.0)
 
 
 func _is_inside(pos: Vector2) -> bool:
-	# If follow_finger is on, we check the home origin or a larger zone
-	# Use the global rect of the Control node for easier detection
 	return get_global_rect().has_point(pos)
 
 

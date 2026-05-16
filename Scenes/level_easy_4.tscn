@@ -1441,7 +1441,7 @@ rotation = 3.1415927
 scale = Vector2(2.1167169, 2.1167169)
 
 [node name="Saw5" parent="Exit/Traps" unique_id=2103720113 instance=ExtResource("7_teq7n")]
-position = Vector2(29.50821, 155.7377)
+position = Vector2(15.573768, 150.40984)
 scale = Vector2(3.0000024, 3.0000024)
 
 [node name="3" type="Sprite2D" parent="." unique_id=469621234]

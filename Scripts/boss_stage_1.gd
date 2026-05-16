@@ -16,7 +16,10 @@ var default_camera_zoom: Vector2
 var default_camera_pos: Vector2
 
 func _ready():
-	# 1. Stop the world
+	var player_ui = player.get_node_or_null("CanvasLayer/Control")
+	if player_ui:
+		player_ui.visible = false
+
 	player.can_move = false
 	boss.set_physics_process(false)
 	boss.set_process(false)
@@ -115,6 +118,18 @@ func play_boss_intro():
 	boss_hp_layer.show()
 	camera.position_smoothing_enabled = true
 	intro_sfx.stop()
+	
+	# Show player UI again
+	var player_ui = player.get_node_or_null("CanvasLayer/Control")
+	if player_ui:
+		player_ui.visible = true
+	
+	GameManager.is_boss_intro = false
+	if player and player.get("is_dead") == false:
+		player.can_move = true
+		boss.set_physics_process(true)
+		boss.set_process(true)
+		get_tree().paused = false
 	
 	# CHECK: Only unpause if the player is actually alive!
 	# Replace 'is_dead' with the actual variable name in your player script

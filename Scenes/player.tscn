@@ -752,6 +752,7 @@ texture = ExtResource("32_8gxox")
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1603603188]
 editor_description = "▲"
+texture_filter = 2
 position = Vector2(1610, 781)
 scale = Vector2(4.422492, 4.1049786)
 texture_normal = ExtResource("32_11gg7")
@@ -760,6 +761,7 @@ action = "move_jump"
 
 [node name="DashButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1377267245]
 editor_description = "DASH"
+texture_filter = 2
 position = Vector2(1298, 799)
 scale = Vector2(3.9689012, 3.5153127)
 texture_normal = ExtResource("33_qpa8y")
@@ -767,7 +769,8 @@ texture_pressed = ExtResource("33_qpa8y")
 action = "move_dash"
 
 [node name="PauseButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=237714871]
-position = Vector2(47, 37)
+texture_filter = 2
+position = Vector2(95, 52)
 scale = Vector2(2.1458333, 1.9342723)
 texture_normal = ExtResource("34_sbwqj")
 texture_pressed = ExtResource("34_sbwqj")

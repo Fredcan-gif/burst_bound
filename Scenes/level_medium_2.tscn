@@ -1455,10 +1455,6 @@ scale = Vector2(3, 3)
 
 [node name="Traps2" type="Node2D" parent="." unique_id=379729755]
 
-[node name="LaserTrap3" parent="Traps2" unique_id=530989828 instance=ExtResource("13_ysuix")]
-position = Vector2(274, 511)
-scale = Vector2(4.427692, 4.427692)
-
 [node name="LaserTrap4" parent="Traps2" unique_id=1078265550 instance=ExtResource("13_ysuix")]
 position = Vector2(350.00003, 511)
 scale = Vector2(4.427692, 4.427692)
@@ -1509,12 +1505,6 @@ start_delay = 1.0
 
 [node name="LaserTrap13" parent="Traps2" unique_id=485217245 instance=ExtResource("13_ysuix")]
 position = Vector2(1183, 511)
-scale = Vector2(4.427692, 4.427692)
-laser_off_duration = 0.5
-start_delay = 1.0
-
-[node name="LaserTrap14" parent="Traps2" unique_id=1522451624 instance=ExtResource("13_ysuix")]
-position = Vector2(1256, 511)
 scale = Vector2(4.427692, 4.427692)
 laser_off_duration = 0.5
 start_delay = 1.0

@@ -26,10 +26,16 @@ var can_dash = true
 @onready var dash_fx = $DashFX
 @onready var death_fx = $DeathFX
 @onready var run_fx = $RunFX
+@onready var pause_button = $CanvasLayer/Control/PauseButton
+@onready var joystick_control = $CanvasLayer/Control
 
 func _ready():
-	# Start timer when player spawns into the level
 	GameManager.start_level_timer()
+	
+	var scene_path = get_tree().current_scene.scene_file_path
+	var is_tutorial = "tutorial" in scene_path.to_lower()
+	if has_node("CanvasLayer/Control/PauseButton"):
+		pause_button.visible = not is_tutorial
 
 func _draw():
 	if is_dead:
@@ -46,7 +52,6 @@ func _draw():
 			draw_rect(Rect2(pip_pos, pip_size), Color(0.3, 0.3, 0.3, 0.8))
 
 func _physics_process(delta):
-	
 	if Dialogue.is_showing or Dialogue.just_closed:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -81,17 +86,16 @@ func _physics_process(delta):
 		start_dash()
 
 	# 4. Standard Horizontal Movement
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = Input.get_axis("move_left", "move_right")
 	if not is_dashing:
-		if direction != Vector2.ZERO:
-			velocity.x = direction.x * SPEED
-			velocity.y += direction.y * SPEED * delta  # or however you want vertical to feel
-			sprite.flip_h = direction.x < 0
+		if direction:
+			velocity.x = direction * SPEED
+			sprite.flip_h = direction < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	update_animations(direction.x)
+	update_animations(direction)
 	queue_redraw()
 
 func start_dash():
@@ -118,25 +122,21 @@ func start_dash():
 
 	$DashTimer.start(0.2)
 
-func update_animations(direction):
+func update_animations(_direction):
 	if is_dead:
-		if run_fx.playing: run_fx.stop()
 		return
 	if not can_move:
 		sprite.play("idle")
 		sprite.rotation = 0
-		if run_fx.playing: run_fx.stop()
 		return
 	if is_dashing:
 		sprite.play("dash")
-		if run_fx.playing: run_fx.stop()
 		return
 
 	sprite.rotation = 0
 	sprite.flip_v = false
 
 	if not is_on_floor():
-		if run_fx.playing: run_fx.stop()
 		if velocity.y > 0:
 			if not fall_start_played:
 				if sprite.animation != "fall_start":
@@ -151,14 +151,13 @@ func update_animations(direction):
 			fall_start_played = false
 	else:
 		fall_start_played = false
-		if direction != 0:
+		# Only use X axis for run/idle — ignore vertical joystick
+		var horizontal = Input.get_axis("move_left", "move_right")
+		if horizontal != 0:
 			sprite.play("run")
-			sprite.flip_h = direction < 0
-			if not run_fx.playing: 
-				run_fx.play(0.15)
+			sprite.flip_h = horizontal < 0
 		else:
 			sprite.play("idle")
-			if run_fx.playing: run_fx.stop()
 
 func _on_dash_timer_timeout():
 	is_dashing = false
