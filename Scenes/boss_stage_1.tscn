@@ -1671,12 +1671,12 @@ scale = Vector2(6, 6)
 collision_layer = 4
 
 [node name="Saw8" parent="Traps" unique_id=1806832774 instance=ExtResource("4_vjp67")]
-position = Vector2(1367, 118)
+position = Vector2(1367, 85)
 scale = Vector2(6, 6)
 collision_layer = 4
 
 [node name="Saw9" parent="Traps" unique_id=572267413 instance=ExtResource("4_vjp67")]
-position = Vector2(556, 118)
+position = Vector2(556, 85)
 scale = Vector2(6, 6)
 collision_layer = 4
 

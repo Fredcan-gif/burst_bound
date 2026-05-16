@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 400.0
-const CHARGE_SPEED = 1800.0
+const MOVE_SPEED = 300.0
+const CHARGE_SPEED = 1850.0
 
 var hp = 5
 var max_hp = 5
@@ -12,7 +12,7 @@ var charge_direction = Vector2.ZERO
 var ability_timer = 0.0
 const ABILITY_INTERVAL = 1.3
 const CHARGE_WINDUP = 1
-const MAX_CHARGE_DISTANCE = 1300.0
+const MAX_CHARGE_DISTANCE = 2000.0
 
 @onready var sprite = $AnimatedSprite2D
 @onready var charge_indicator = get_parent().get_node("ChargeIndicator")

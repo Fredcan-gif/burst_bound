@@ -658,6 +658,7 @@ bus = &"SFX"
 
 [node name="DashFX" type="AudioStreamPlayer2D" parent="." unique_id=99743414]
 stream = ExtResource("10_gymyn")
+volume_db = -5.0
 panning_strength = 0.0
 bus = &"SFX"
 
@@ -710,12 +711,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -738.0
-offset_top = 255.0
-offset_right = -618.0
-offset_bottom = 375.0
+offset_left = -914.0
+offset_top = 95.0
+offset_right = -590.0
+offset_bottom = 419.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 script = ExtResource("30_yh6i2")
 
 [node name="Base" type="TextureRect" parent="CanvasLayer/Control/Joystick" unique_id=1056040621]
@@ -731,6 +733,7 @@ offset_right = 188.99998
 offset_bottom = 188.99997
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(64, 64)
 mouse_filter = 2
 texture = ExtResource("30_nv4vc")
 
@@ -741,19 +744,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.73026
+offset_left = -72.730255
 offset_top = -69.09375
-offset_right = 72.73026
+offset_right = 72.730255
 offset_bottom = 69.09375
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(32, 32)
 mouse_filter = 2
 texture = ExtResource("32_8gxox")
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1603603188]
 editor_description = "▲"
 texture_filter = 2
-position = Vector2(1610, 781)
+position = Vector2(1629, 781)
 scale = Vector2(4.422492, 4.1049786)
 texture_normal = ExtResource("32_11gg7")
 texture_pressed = ExtResource("32_11gg7")
@@ -762,7 +766,7 @@ action = "move_jump"
 [node name="DashButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=1377267245]
 editor_description = "DASH"
 texture_filter = 2
-position = Vector2(1298, 799)
+position = Vector2(1317, 799)
 scale = Vector2(3.9689012, 3.5153127)
 texture_normal = ExtResource("33_qpa8y")
 texture_pressed = ExtResource("33_qpa8y")
@@ -770,7 +774,7 @@ action = "move_dash"
 
 [node name="PauseButton" type="TouchScreenButton" parent="CanvasLayer/Control" unique_id=237714871]
 texture_filter = 2
-position = Vector2(95, 52)
+position = Vector2(76, 52)
 scale = Vector2(2.1458333, 1.9342723)
 texture_normal = ExtResource("34_sbwqj")
 texture_pressed = ExtResource("34_sbwqj")

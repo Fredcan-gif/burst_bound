@@ -40,6 +40,13 @@ func _ready():
 		
 	black_overlay.modulate.a = 0
 	
+	leaderboard_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	leaderboard_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	leaderboard_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_ALWAYS # Or SCROLL_MODE_SHOW_AS_NEEDED
+	
+	# Enable touch drag scrolling
+	leaderboard_scroll.get_v_scroll_bar().mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 	orig_pos["clipboard_image"] = clipboard_image.position
 	orig_pos["score_label"] = score_label.position
 	orig_pos["time_label"] = time_label.position
@@ -113,7 +120,7 @@ func show_results(score: int, time: float):
 	fade_tween.tween_property(leaderboard_container, "modulate:a", 1.0, 0.5)
 
 func _populate_leaderboard():
-	leaderboard_scroll.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	leaderboard_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
 	for child in records_list.get_children():
 		child.queue_free()
 
