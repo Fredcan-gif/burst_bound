@@ -48,3 +48,10 @@
 - Added Options Menu
 - Improved boss scene
 - Updated main menu
+
+**5/16/2026 - Week 6 Progress:**
+- Added Credits
+- Updated stages
+- Updated tutorial
+- Added mobile support and controls
+- Optimization
